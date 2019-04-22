@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5428041528652989853}
   - component: {fileID: 2616175162352991963}
   - component: {fileID: 2250352070587410398}
-  m_Layer: 0
+  - component: {fileID: 902573544824217531}
+  m_Layer: 8
   m_Name: BirdEnemyFlapSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,9 +95,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.058642387, y: -0.012543201}
+  m_Offset: {x: 0.0673579, y: -0.015448272}
   serializedVersion: 2
-  m_Radius: 0.40168166
+  m_Radius: 0.52950794
 --- !u!50 &2250352070587410398
 Rigidbody2D:
   serializedVersion: 4
@@ -105,7 +106,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902573544824217530}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -118,3 +119,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &902573544824217531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902573544824217530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f7cc6b66250724f9f74ec57dad5194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer:
+    serializedVersion: 2
+    m_Bits: 256
+  clicked: 0
