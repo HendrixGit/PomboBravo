@@ -18,6 +18,10 @@ public class Drag : MonoBehaviour
     private Vector2 catapultToBird;
     private Vector3 pointL;
 
+    private SpringJoint2D spring;
+    private Vector2 preVel;
+    private Rigidbody2D passaroRB;
+
     void Start()
     {
         drag = GetComponent<Collider2D>();
@@ -25,11 +29,17 @@ public class Drag : MonoBehaviour
  
         leftCatapultRay = new Ray(lineFront.transform.position, Vector3.zero);
         passaroCol = GetComponent<CircleCollider2D>();
+
+        spring    = GetComponent<SpringJoint2D>();
+        passaroRB = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
         LineUpdate();
+        SpringEffect();
+
+        preVel = passaroRB.velocity;
 
         if (Input.touchCount > 0) {
             touch = Input.GetTouch(0);
@@ -49,7 +59,9 @@ public class Drag : MonoBehaviour
                 }
             }
             if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled) {
+                passaroRB.isKinematic = false;
                 clicked = false;
+                MataPassaro();
             }
         }
     }
@@ -69,4 +81,31 @@ public class Drag : MonoBehaviour
         lineFront.SetPosition(1, pointL);
         lineBack.SetPosition(1, pointL);
     }
+
+    void SpringEffect() {
+        if (spring != null) {
+            if (passaroRB.isKinematic == false) {
+                if (preVel.sqrMagnitude > passaroRB.velocity.sqrMagnitude) {//retorno do comprimente do quadrado do vetor
+                    lineFront.enabled = false;
+                    lineBack.enabled  = false;
+                    //Destroy(spring);
+                    spring.enabled = false;
+                    passaroRB.velocity = preVel;//ajuste de velocidade apos a destruicao do spring
+                    
+                }
+            }
+        }
+    }
+
+    void MataPassaro() {
+        if (passaroRB.velocity.magnitude < 0.5f) {
+            StartCoroutine(TempoMorte());
+        }
+    }
+
+    IEnumerator TempoMorte() {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
+    }
+
 }
