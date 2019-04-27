@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2632569313728380744}
   - component: {fileID: 7885249768019448299}
   - component: {fileID: 4499984188407839422}
+  - component: {fileID: 780643536}
   m_Layer: 0
   m_Name: IceSprite
   m_TagString: Untagged
@@ -128,3 +129,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &780643536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339357084141374674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59935c7422fbc324cb3287943dbb9dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 6e848caf271b78b4f814dd13ed876d0e, type: 3}
+  - {fileID: 21300000, guid: 12238cce19ab96f4286cff55b0e530fe, type: 3}
+  - {fileID: 21300000, guid: 1cad59f1b8bed9b4593242c9668bd47b, type: 3}
+  bomb: {fileID: 8237813438692867770, guid: d19eb465f7df72c4abfe38ecd1a5746c, type: 3}
