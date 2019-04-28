@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Input\Phase.cs" />
     <Compile Include="Assets\Scripts\Input\Position.cs" />
     <Compile Include="Assets\Scripts\Input\TCount.cs" />
+    <Compile Include="Assets\Scripts\QuebraParentesco.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Programacao/Projetos/Unity/PomboBravo/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

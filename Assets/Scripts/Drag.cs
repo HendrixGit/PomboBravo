@@ -29,6 +29,9 @@ public class Drag : MonoBehaviour
     private Transform catapult;
     private Ray rayToMT;
 
+    //Rastro
+    private TrailRenderer rastro;
+
     void Start()
     {
         drag = GetComponent<Collider2D>();
@@ -44,6 +47,8 @@ public class Drag : MonoBehaviour
 
         catapult = spring.connectedBody.transform;
         rayToMT  = new Ray(catapult.position, Vector3.zero);
+
+        rastro = GetComponentInChildren<TrailRenderer>();
     }
 
     void Update()
@@ -158,12 +163,14 @@ public class Drag : MonoBehaviour
     void OnMouseDown()
     {
         clicked = true;
+        rastro.enabled = false;
     }
 
     void OnMouseUp()
     {
         passaroRB.isKinematic = false;
         clicked = false;
+        rastro.enabled = true;
     }
 
 }
