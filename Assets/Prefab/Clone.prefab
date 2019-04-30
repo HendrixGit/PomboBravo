@@ -12,12 +12,8 @@ GameObject:
   - component: {fileID: 6747094273643560612}
   - component: {fileID: 6747094273643560613}
   - component: {fileID: 6747094273643560794}
-  - component: {fileID: 6747094273643560795}
-  - component: {fileID: 6747094273643560614}
-  - component: {fileID: 1156281086}
-  - component: {fileID: 1156281092}
   m_Layer: 8
-  m_Name: Passaro
+  m_Name: Clone
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +106,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6747094273643560792}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -123,72 +119,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6747094273643560795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6747094273643560792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f7cc6b66250724f9f74ec57dad5194, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layer:
-    serializedVersion: 2
-    m_Bits: 256
-  clicked: 0
-  lineFront: {fileID: 0}
-  lineBack: {fileID: 0}
-  bomb: {fileID: 593485446287643226, guid: d52c109770919894eae9bdbb32690f8a, type: 3}
---- !u!231 &6747094273643560614
-SpringJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6747094273643560792}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_AutoConfigureDistance: 0
-  m_Distance: 1
-  m_DampingRatio: 0
-  m_Frequency: 3
---- !u!114 &1156281086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6747094273643560792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7509e155266252489033c2520fecf16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  passaroRB: {fileID: 0}
-  libera: 0
-  trava: 0
---- !u!114 &1156281092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6747094273643560792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92f4c09ea85d48b4db96fba43cfea426, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6747094274521264310
 GameObject:
   m_ObjectHideFlags: 0
