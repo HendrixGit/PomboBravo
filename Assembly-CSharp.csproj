@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BombaPassaro.cs" />
     <Compile Include="Assets\Scripts\CameraSegue.cs" />
     <Compile Include="Assets\Scripts\Drag.cs" />
     <Compile Include="Assets\Scripts\ImpactCode.cs" />
@@ -70,9 +71,11 @@
     <Compile Include="Assets\Scripts\Input\Phase.cs" />
     <Compile Include="Assets\Scripts\Input\Position.cs" />
     <Compile Include="Assets\Scripts\Input\TCount.cs" />
+    <Compile Include="Assets\Scripts\MorteTudo.cs" />
     <Compile Include="Assets\Scripts\Multiplo.cs" />
     <Compile Include="Assets\Scripts\QuebraParentesco.cs" />
     <Compile Include="Assets\Scripts\Veloz.cs" />
+    <Compile Include="Assets\Scripts\Zoom.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Programacao/Projetos/Unity/PomboBravo/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

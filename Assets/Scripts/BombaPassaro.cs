@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Veloz : MonoBehaviour
+public class BombaPassaro : MonoBehaviour
 {
     public Rigidbody2D passaroRB;
     public bool libera = false;
     public int trava;
     private Touch touch;
+    public GameObject bomba;
 
     // Start is called before the first frame update
     void Start()
@@ -22,26 +23,23 @@ public class Veloz : MonoBehaviour
         {
             libera = true;
             trava = 1;
+            Instantiate(bomba, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
 
-        if (Input.touchCount > 0) {
+        if (Input.touchCount > 0)
+        {
             touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Ended && trava < 2 && passaroRB.isKinematic == false) {
+            if (touch.phase == TouchPhase.Ended && trava < 2 && passaroRB.isKinematic == false)
+            {
                 trava++;
-                if (trava == 2) {
+                if (trava == 2)
+                {
                     libera = true;
+                    Instantiate(bomba, transform.position, Quaternion.identity);
+                    Destroy(gameObject);
                 }
             }
         }
-
     }
-
-    void FixedUpdate()
-    {
-        if (libera == true) {
-            passaroRB.velocity = passaroRB.velocity * 2.5f;
-            libera = false;
-        }
-    }
-
 }
