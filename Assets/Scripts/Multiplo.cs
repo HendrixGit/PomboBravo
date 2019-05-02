@@ -22,13 +22,14 @@ public class Multiplo : MonoBehaviour
     void Update()
     {
         //MOuse
-        //if (Input.GetMouseButtonDown(0) && passaroRB.isKinematic == false && trava == 0) {
-        //    libera = true;
-        //    start = transform.position;
-        //    pass1 = Instantiate(passPrefab, new Vector3(start.x, start.y + 0.1f, start.z), Quaternion.identity);
-        //    pass2 = Instantiate(passPrefab, new Vector3(start.x, start.y - 0.1f, start.z), Quaternion.identity);
-        //    trava = 1;
-        //}
+        if (Input.GetMouseButtonDown(0) && passaroRB.isKinematic == false && trava == 0)
+        {
+            libera = true;
+            start = transform.position;
+            pass1 = Instantiate(passPrefab, new Vector3(start.x, start.y + 0.1f, start.z), Quaternion.identity);
+            pass2 = Instantiate(passPrefab, new Vector3(start.x, start.y - 0.1f, start.z), Quaternion.identity);
+            trava = 1;
+        }
 
         if (Input.touchCount > 0)
         {

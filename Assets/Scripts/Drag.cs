@@ -61,7 +61,7 @@ public class Drag : MonoBehaviour
 #if UNITY_ANDROID
 
         if (Input.touchCount > 0) {
-            touch = Input.GetTouch(0);
+            touch = Input.GetTouch(0); 
 
             Vector2 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
             RaycastHit2D hit = Physics2D.Raycast(wp, Vector2.zero, Mathf.Infinity, layer.value);
@@ -70,7 +70,7 @@ public class Drag : MonoBehaviour
                 clicked = true;
             }
 
-            if (clicked) {
+                if (clicked) {
                 if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved) {
                     Vector3 tpos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10));
 
@@ -133,7 +133,7 @@ public class Drag : MonoBehaviour
     }
 
     void MataPassaro() {
-        if (passaroRB.velocity.magnitude == 0) {
+        if (passaroRB.velocity.magnitude == 0 && passaroRB.isKinematic == false) {
             StartCoroutine(TempoMorte());
         }
     }
