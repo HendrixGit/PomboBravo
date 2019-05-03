@@ -64,16 +64,20 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BombaPassaro.cs" />
     <Compile Include="Assets\Scripts\CameraSegue.cs" />
+    <Compile Include="Assets\Scripts\CriaPassaroUI.cs" />
     <Compile Include="Assets\Scripts\Drag.cs" />
     <Compile Include="Assets\Scripts\ImpactCode.cs" />
+    <Compile Include="Assets\Scripts\Impulso.cs" />
     <Compile Include="Assets\Scripts\Input\Accelerometer.cs" />
     <Compile Include="Assets\Scripts\Input\LineR.cs" />
     <Compile Include="Assets\Scripts\Input\Phase.cs" />
     <Compile Include="Assets\Scripts\Input\Position.cs" />
     <Compile Include="Assets\Scripts\Input\TCount.cs" />
+    <Compile Include="Assets\Scripts\MorteArea.cs" />
     <Compile Include="Assets\Scripts\MorteTudo.cs" />
     <Compile Include="Assets\Scripts\Multiplo.cs" />
     <Compile Include="Assets\Scripts\QuebraParentesco.cs" />
+    <Compile Include="Assets\Scripts\ScrollUI.cs" />
     <Compile Include="Assets\Scripts\Veloz.cs" />
     <Compile Include="Assets\Scripts\Zoom.cs" />
     <Compile Include="Assets\Scripts\ZoomB.cs" />
