@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\Input\Phase.cs" />
     <Compile Include="Assets\Scripts\Input\Position.cs" />
     <Compile Include="Assets\Scripts\Input\TCount.cs" />
+    <Compile Include="Assets\Scripts\LoadingInfo.cs" />
     <Compile Include="Assets\Scripts\MorteArea.cs" />
     <Compile Include="Assets\Scripts\MorteTudo.cs" />
     <Compile Include="Assets\Scripts\Multiplo.cs" />
