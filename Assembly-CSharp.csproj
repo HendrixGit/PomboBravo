@@ -62,8 +62,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Baixa_Fut.cs" />
     <Compile Include="Assets\Scripts\BombaPassaro.cs" />
     <Compile Include="Assets\Scripts\CameraSegue.cs" />
+    <Compile Include="Assets\Scripts\Control_BTN_Menu.cs" />
     <Compile Include="Assets\Scripts\CriaPassaroUI.cs" />
     <Compile Include="Assets\Scripts\Drag.cs" />
     <Compile Include="Assets\Scripts\ImpactCode.cs" />
