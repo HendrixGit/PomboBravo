@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Baixa_Fut.cs" />
     <Compile Include="Assets\Scripts\BombaPassaro.cs" />
+    <Compile Include="Assets\Scripts\BTN_Confs.cs" />
     <Compile Include="Assets\Scripts\CameraSegue.cs" />
     <Compile Include="Assets\Scripts\Control_BTN_Menu.cs" />
     <Compile Include="Assets\Scripts\CriaPassaroUI.cs" />
@@ -89,9 +90,6 @@
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Editor">
       <HintPath>D:/Programacao/Projetos/Unity/PomboBravo/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Programacao/Projetos/Unity/PomboBravo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>D:/Programacao/Projetos/Unity/PomboBravo/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
@@ -119,9 +117,6 @@
     </Reference>
     <Reference Include="XiaomiSupport">
       <HintPath>D:/Programacao/Projetos/Unity/PomboBravo/Library/ScriptAssemblies/XiaomiSupport.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Programacao/Projetos/Unity/PomboBravo/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>D:/Programacao/Projetos/Unity/PomboBravo/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
