@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class BTN_Confs : MonoBehaviour
 {
-    private bool liga = false;
+    public static BTN_Confs instance;
+    public bool liga = false;
     public Animator animaConf, animaEngrenagem;
+
+    private void Awake()
+    {
+        if (instance == null) {
+            instance = this;
+        }
+    }
 
     public void ClickBTN() {
         liga = !liga;

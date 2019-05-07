@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\LoadingInfo.cs" />
     <Compile Include="Assets\Scripts\MorteArea.cs" />
     <Compile Include="Assets\Scripts\MorteTudo.cs" />
+    <Compile Include="Assets\Scripts\Move_Txt_Info.cs" />
     <Compile Include="Assets\Scripts\Multiplo.cs" />
     <Compile Include="Assets\Scripts\QuebraParentesco.cs" />
     <Compile Include="Assets\Scripts\ScrollUI.cs" />
