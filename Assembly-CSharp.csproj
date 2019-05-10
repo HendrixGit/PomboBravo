@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Move_Txt_Info.cs" />
     <Compile Include="Assets\Scripts\Multiplo.cs" />
     <Compile Include="Assets\Scripts\QuebraParentesco.cs" />
+    <Compile Include="Assets\Scripts\SaveData\SalvaDados.cs" />
     <Compile Include="Assets\Scripts\ScrollUI.cs" />
     <Compile Include="Assets\Scripts\Veloz.cs" />
     <Compile Include="Assets\Scripts\Zoom.cs" />
