@@ -24,6 +24,7 @@ public class Drag : MonoBehaviour
     private Rigidbody2D passaroRB;
     [SerializeField]
     private GameObject bomb;
+    private bool Libera = false;
 
     //limite elastico
     private Transform catapult;
@@ -60,29 +61,29 @@ public class Drag : MonoBehaviour
 
 #if UNITY_ANDROID
 
-        if (Input.touchCount > 0) {
+        if (Input.touchCount > 0 && Libera == true) {
             touch = Input.GetTouch(0); 
-
-            Vector2 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+            Vector2 wp       = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
             RaycastHit2D hit = Physics2D.Raycast(wp, Vector2.zero, Mathf.Infinity, layer.value);
 
             if (hit.collider != null) {
                 clicked = true;
             }
 
-                if (clicked) {
-                    if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved) {
-                        Vector3 tpos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10));
+            if (clicked) {
+                if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved) {
+                    Vector3 tpos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10));
 
-                        catapultToBird = tpos - catapult.position;
-                        if (catapultToBird.sqrMagnitude > 9f)
-                        {//3 para 3*3 valor limite
-                            rayToMT.direction = catapultToBird;
-                            tpos = rayToMT.GetPoint(3f);
-                        }
-                        transform.position = tpos;
+                    catapultToBird = tpos - catapult.position;
+                    if (catapultToBird.sqrMagnitude > 9f)
+                    {//3 para 3*3 valor limite
+                        rayToMT.direction = catapultToBird;
+                        tpos = rayToMT.GetPoint(3f);
                     }
+                    transform.position = tpos;
+                }
             }
+
             if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled) {
                 passaroRB.isKinematic = false;
                 clicked = false;
@@ -118,7 +119,7 @@ public class Drag : MonoBehaviour
     }
 
     void SpringEffect() {
-        if (spring.enabled) {
+        if (spring.enabled && Libera == true) {
             if (passaroRB.isKinematic == false) {
                 if (preVel.sqrMagnitude > passaroRB.velocity.sqrMagnitude) {//retorno do comprimente do quadrado do vetor
                     lineFront.enabled = false;
@@ -164,6 +165,7 @@ public class Drag : MonoBehaviour
     {
         clicked = true;
         rastro.enabled = false;
+        Libera = true;
     }
 
     void OnMouseUp()
