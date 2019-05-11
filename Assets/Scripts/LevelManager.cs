@@ -20,6 +20,24 @@ public class LevelManager : MonoBehaviour
     public Transform  localBtn;
     public List<Level> levelList;
 
+    void Awake()
+    {
+        //Destroy(GameObject.Find("UIManager(Clone)"));
+        //Destroy(GameObject.Find("GameManager(Clone)"));
+    }
+
+
+    void Start()
+    {
+        ListaAdd();
+    }
+
+
+    void Update()
+    {
+
+    }
+
     void ListaAdd() {
         foreach (Level level in levelList) {
             GameObject btnNovo      = Instantiate(botao) as GameObject;
@@ -43,23 +61,5 @@ public class LevelManager : MonoBehaviour
     void ClickLevel(string level) {
         SceneManager.LoadScene(level);
         print("Clicado");
-    }
-
-    void Awake()
-    {
-        //Destroy(GameObject.Find("UIManager(Clone)"));
-        //Destroy(GameObject.Find("GameManager(Clone)"));
-    }
-
-
-    void Start()
-    {
-        ListaAdd();   
-    }
-
-    
-    void Update()
-    {
-        
     }
 }

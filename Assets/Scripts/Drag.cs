@@ -71,17 +71,17 @@ public class Drag : MonoBehaviour
             }
 
                 if (clicked) {
-                if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved) {
-                    Vector3 tpos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10));
+                    if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved) {
+                        Vector3 tpos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10));
 
-                    catapultToBird = tpos - catapult.position;
-                    if (catapultToBird.sqrMagnitude > 9f)
-                    {//3 para 3*3 valor limite
-                        rayToMT.direction = catapultToBird;
-                        tpos = rayToMT.GetPoint(3f);
+                        catapultToBird = tpos - catapult.position;
+                        if (catapultToBird.sqrMagnitude > 9f)
+                        {//3 para 3*3 valor limite
+                            rayToMT.direction = catapultToBird;
+                            tpos = rayToMT.GetPoint(3f);
+                        }
+                        transform.position = tpos;
                     }
-                    transform.position = tpos;
-                }
             }
             if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled) {
                 passaroRB.isKinematic = false;
@@ -171,6 +171,7 @@ public class Drag : MonoBehaviour
         passaroRB.isKinematic = false;
         clicked = false;
         rastro.enabled = true;
+        MataPassaro();
     }
 
 }

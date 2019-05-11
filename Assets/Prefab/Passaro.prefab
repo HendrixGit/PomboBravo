@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 6747094273643560614}
   - component: {fileID: 1156281086}
   - component: {fileID: 1156281092}
+  - component: {fileID: 6516632307450165268}
+  - component: {fileID: 1156281095}
   m_Layer: 8
   m_Name: Passaro
   m_TagString: Player
@@ -169,7 +171,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6747094273643560792}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7509e155266252489033c2520fecf16, type: 3}
   m_Name: 
@@ -189,6 +191,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f4c09ea85d48b4db96fba43cfea426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6516632307450165268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6747094273643560792}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e778a4e2e1d0c4a940f1988a9f1050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pass1: {fileID: 0}
+  pass2: {fileID: 0}
+  passaroRB: {fileID: 0}
+  passPrefab: {fileID: 6747094273643560794, guid: fdb7a67a4bac04243ab5ceb7e8136237,
+    type: 3}
+  trava: 0
+--- !u!114 &1156281095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6747094273643560792}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca2a1029bf6d39644bc6b844143fdb5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passaroRB: {fileID: 0}
+  libera: 0
+  trava: 0
+  bomba: {fileID: 7758410881483243034, guid: f081a831b2587a84da41b4d7c7827f3a, type: 3}
 --- !u!1 &6747094274521264310
 GameObject:
   m_ObjectHideFlags: 0

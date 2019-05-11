@@ -57,6 +57,7 @@ public class SalvaDados : MonoBehaviour
     [Serializable]
     class SaveClass{
         public float posX;
+       
     }
 
 }
