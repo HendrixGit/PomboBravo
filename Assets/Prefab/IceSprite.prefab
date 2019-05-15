@@ -146,3 +146,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2c0b6da58015b8a4fb32b2447a40bd8d, type: 3}
   - {fileID: 21300000, guid: 5e2e0b3ea4ede9444965c39190586fea, type: 3}
   bomb: {fileID: 8237813438692867770, guid: d19eb465f7df72c4abfe38ecd1a5746c, type: 3}
+  pontos100: {fileID: 2405714137716999050, guid: 3726ac0168402624fa4863fda8a5c525,
+    type: 3}

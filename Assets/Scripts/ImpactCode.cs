@@ -9,7 +9,7 @@ public class ImpactCode : MonoBehaviour
     [SerializeField]
     private Sprite[] sprites;
     [SerializeField]
-    private GameObject bomb;
+    private GameObject bomb, pontos100;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,8 @@ public class ImpactCode : MonoBehaviour
             }
             else if (limite == sprites.Length - 1)
             {
-                Instantiate(bomb, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                Instantiate(bomb,      new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                Instantiate(pontos100, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 Destroy(gameObject);
             }
         }
