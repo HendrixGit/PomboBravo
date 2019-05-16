@@ -36,7 +36,7 @@ public class Drag : MonoBehaviour
     void Start()
     {
         drag = GetComponent<Collider2D>();
-        SetupLine();
+        
 
         leftCatapultRay = new Ray(lineFront.transform.position, Vector3.zero);
         passaroCol      = GetComponent<CircleCollider2D>();
@@ -54,8 +54,12 @@ public class Drag : MonoBehaviour
 
     void Update()
     {
-        LineUpdate();
-        SpringEffect();
+        if (Libera)
+        {
+            SetupLine();
+            LineUpdate();
+            SpringEffect();
+        }
 
         preVel = passaroRB.velocity;
 
@@ -116,6 +120,7 @@ public class Drag : MonoBehaviour
 
         lineFront.SetPosition(1, pointL);
         lineBack.SetPosition(1, pointL);
+
     }
 
     void SpringEffect() {
@@ -166,6 +171,7 @@ public class Drag : MonoBehaviour
         clicked = true;
         rastro.enabled = false;
         Libera = true;
+        
     }
 
     void OnMouseUp()

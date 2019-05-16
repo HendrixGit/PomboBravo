@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Control_BTN_Menu.cs" />
     <Compile Include="Assets\Scripts\CriaPassaroUI.cs" />
     <Compile Include="Assets\Scripts\Drag.cs" />
+    <Compile Include="Assets\Scripts\GAME_MANAGER.cs" />
     <Compile Include="Assets\Scripts\ImpactCode.cs" />
     <Compile Include="Assets\Scripts\Impulso.cs" />
     <Compile Include="Assets\Scripts\Input\Accelerometer.cs" />

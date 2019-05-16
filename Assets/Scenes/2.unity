@@ -318,6 +318,86 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &4305874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4305875}
+  m_Layer: 0
+  m_Name: posicao
+  m_TagString: pos
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4305875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4305874}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.33, y: -2.18, z: -2.843042}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &88755657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 88755659}
+  - component: {fileID: 88755658}
+  m_Layer: 0
+  m_Name: Game_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &88755658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88755657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9522b1979c01d274ea5f3505805a993d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passaro: []
+  passarosNum: 0
+  passarosEmCena: 0
+  pos: {fileID: 0}
+  win: 0
+  jogoComecou: 0
+  nomePassaro: 
+--- !u!4 &88755659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88755657}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.79, y: 11.14, z: -4.1163545}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &109079772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,7 +1822,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935613882}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.494, y: -0.088, z: -0.349}
+  m_LocalPosition: {x: -0.494, y: -0.035, z: -0.349}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2719059}
@@ -3464,6 +3544,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0.095742136
       objectReference: {fileID: 0}
+    - target: {fileID: 8726528158215042310, guid: 0d44e17a132316c4ebb0db9f197e68d0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d44e17a132316c4ebb0db9f197e68d0, type: 3}
 --- !u!1 &6060100658542057914 stripped
@@ -3501,12 +3586,12 @@ PrefabInstance:
     - target: {fileID: 6747094273643560792, guid: 7717b8ed33f06f34c8a8ac691683c92e,
         type: 3}
       propertyPath: m_Name
-      value: Passaro
+      value: Bird0
       objectReference: {fileID: 0}
     - target: {fileID: 6747094273643560615, guid: 7717b8ed33f06f34c8a8ac691683c92e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.11
+      value: -10.33
       objectReference: {fileID: 0}
     - target: {fileID: 6747094273643560615, guid: 7717b8ed33f06f34c8a8ac691683c92e,
         type: 3}
@@ -3573,21 +3658,6 @@ PrefabInstance:
       propertyPath: m_ConnectedRigidBody
       value: 
       objectReference: {fileID: 2719061}
-    - target: {fileID: 6747094273643560612, guid: 7717b8ed33f06f34c8a8ac691683c92e,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6747094273643560612, guid: 7717b8ed33f06f34c8a8ac691683c92e,
-        type: 3}
-      propertyPath: m_DrawMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6747094273643560794, guid: 7717b8ed33f06f34c8a8ac691683c92e,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7717b8ed33f06f34c8a8ac691683c92e, type: 3}
 --- !u!1 &7781089143295426656 stripped
@@ -3825,6 +3895,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683617355360524164, guid: 9fd66a1480865b04eb34fd385c4612df,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fd66a1480865b04eb34fd385c4612df, type: 3}

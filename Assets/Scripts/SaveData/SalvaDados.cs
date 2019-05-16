@@ -8,13 +8,12 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class SalvaDados : MonoBehaviour
 {
     public Vector3 temp;
-    // Start is called before the first frame update
+    
     void Start()
     {
         temp = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) {
@@ -57,7 +56,6 @@ public class SalvaDados : MonoBehaviour
     [Serializable]
     class SaveClass{
         public float posX;
-       
     }
 
 }
