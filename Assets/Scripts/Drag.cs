@@ -24,7 +24,6 @@ public class Drag : MonoBehaviour
     private Rigidbody2D passaroRB;
     [SerializeField]
     private GameObject bomb;
-    private bool Libera = false;
 
     //limite elastico
     private Transform catapult;
@@ -33,39 +32,49 @@ public class Drag : MonoBehaviour
     //Rastro
     private TrailRenderer rastro;
 
-    void Start()
-    {
+    public Rigidbody2D catapultRB;
+    public bool estouPronto = false;
+
+    void Awake() {
+
+        spring = GetComponent<SpringJoint2D>();
+        lineFront  = GameObject.FindWithTag("LF").GetComponent<LineRenderer>();
+        lineBack   = GameObject.FindWithTag("LB").GetComponent<LineRenderer>();
+        catapultRB = GameObject.FindWithTag("LB").GetComponent<Rigidbody2D>();
+        spring.connectedBody = catapultRB;
+
         drag = GetComponent<Collider2D>();
-        
 
         leftCatapultRay = new Ray(lineFront.transform.position, Vector3.zero);
-        passaroCol      = GetComponent<CircleCollider2D>();
+        passaroCol = GetComponent<CircleCollider2D>();
 
-        spring    = GetComponent<SpringJoint2D>();
+        
         passaroRB = GetComponent<Rigidbody2D>();
 
         clicked = false;
 
         catapult = spring.connectedBody.transform;
-        rayToMT  = new Ray(catapult.position, Vector3.zero);
+        rayToMT = new Ray(catapult.position, Vector3.zero);
 
         rastro = GetComponentInChildren<TrailRenderer>();
     }
 
+    void Start()
+    {
+        SetupLine();
+    }
+
     void Update()
     {
-        if (Libera)
-        {
-            SetupLine();
-            LineUpdate();
-            SpringEffect();
-        }
-
+    
+        LineUpdate();
+        SpringEffect();
+ 
         preVel = passaroRB.velocity;
 
 #if UNITY_ANDROID
 
-        if (Input.touchCount > 0 && Libera == true) {
+        if (Input.touchCount > 0 && estouPronto) {
             touch = Input.GetTouch(0); 
             Vector2 wp       = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
             RaycastHit2D hit = Physics2D.Raycast(wp, Vector2.zero, Mathf.Infinity, layer.value);
@@ -102,8 +111,17 @@ public class Drag : MonoBehaviour
         {
             Dragging();
         }
-
 #endif
+        MataPassaro();
+
+        if (!passaroRB.isKinematic) {
+            Vector3 posCam = Camera.main.transform.position;
+            posCam.x = transform.position.x;
+            posCam.x = Mathf.Clamp(posCam.x, GAME_MANAGER.instance.objE.position.x, GAME_MANAGER.instance.objD.position.x);
+            Camera.main.transform.position = posCam;
+        }    
+
+
     }
 
     void SetupLine() {
@@ -113,73 +131,94 @@ public class Drag : MonoBehaviour
 
     void LineUpdate() {
 
-        catapultToBird = transform.position - lineFront.transform.position;
-        leftCatapultRay.direction = catapultToBird;
+        if (transform.name == GAME_MANAGER.instance.nomePassaro) {
+            catapultToBird = transform.position - lineFront.transform.position;
+            leftCatapultRay.direction = catapultToBird;
 
-        pointL = leftCatapultRay.GetPoint(catapultToBird.magnitude + passaroCol.radius);//magnitude comprimento vetor somar valor de um raio para cobrir o personagem
+            pointL = leftCatapultRay.GetPoint(catapultToBird.magnitude + passaroCol.radius);//magnitude comprimento vetor somar valor de um raio para cobrir o personagem
 
-        lineFront.SetPosition(1, pointL);
-        lineBack.SetPosition(1, pointL);
-
+            lineFront.SetPosition(1, pointL);
+            lineBack.SetPosition(1, pointL);
+        }
     }
 
     void SpringEffect() {
-        if (spring.enabled && Libera == true) {
+        if (spring.enabled && GAME_MANAGER.instance.passarosEmCena > 0) {
             if (passaroRB.isKinematic == false) {
                 if (preVel.sqrMagnitude > passaroRB.velocity.sqrMagnitude) {//retorno do comprimente do quadrado do vetor
                     lineFront.enabled = false;
-                    lineBack.enabled = false;
+                    lineBack.enabled  = false;
                     //Destroy(spring);
                     spring.enabled = false;
                     passaroRB.velocity = preVel;//ajuste de velocidade apos a destruicao do spring
 
                 }
             }
+            else if (passaroRB.isKinematic == true && transform.position == GAME_MANAGER.instance.pos.position) {
+                lineFront.enabled = true;
+                lineBack.enabled  = true;
+            }
         }
     }
 
     void MataPassaro() {
-        if (passaroRB.velocity.magnitude == 0 && passaroRB.isKinematic == false) {
+
+        if (passaroRB.velocity.magnitude == 0 && !passaroRB.isKinematic) {
             StartCoroutine(TempoMorte());
         }
     }
 
     IEnumerator TempoMorte() {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         Instantiate(bomb, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
         Destroy(gameObject);
+        GAME_MANAGER.instance.passarosNum    -= 1;
+        GAME_MANAGER.instance.passarosEmCena  = 0;
+        estouPronto = false;
+        GAME_MANAGER.instance.passaroLancado = false;
     }
 
     //mouse
     void Dragging() {
-        Vector3 mouseWP = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mouseWP.z = 0f;
 
-        catapultToBird = mouseWP - catapult.position;
-        if (catapultToBird.sqrMagnitude > 9f) {//3 para 3*3 valor limite
-            rayToMT.direction = catapultToBird;
-            mouseWP = rayToMT.GetPoint(3f);
+        if (passaroRB.isKinematic) {
+            Vector3 mouseWP = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mouseWP.z = 0f;
+
+            catapultToBird = mouseWP - catapult.position;
+            if (catapultToBird.sqrMagnitude > 9f)
+            {//3 para 3*3 valor limite
+                rayToMT.direction = catapultToBird;
+                mouseWP = rayToMT.GetPoint(3f);
+            }
+
+            transform.position = mouseWP;
+
+            MataPassaro();
         }
 
-        transform.position = mouseWP;
-
-        MataPassaro();
+        
     }
 
     void OnMouseDown()
     {
-        clicked = true;
-        rastro.enabled = false;
-        Libera = true;
+        if (transform.position == GAME_MANAGER.instance.pos.position) {
+            clicked = true;
+            rastro.enabled = false;
+            estouPronto = true;
+        }
         
     }
 
     void OnMouseUp()
     {
-        passaroRB.isKinematic = false;
-        clicked = false;
-        rastro.enabled = true;
-        MataPassaro();
+        if (estouPronto) {
+            passaroRB.isKinematic = false;
+            clicked = false;
+            rastro.enabled = true;
+            GAME_MANAGER.instance.passaroLancado = false;
+        }
+
     }
 
 }

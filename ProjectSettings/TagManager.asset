@@ -11,6 +11,10 @@ TagManager:
   - canvasback
   - infotext
   - pos
+  - LB
+  - LF
+  - PE
+  - PD
   layers:
   - Default
   - TransparentFX

@@ -5,18 +5,20 @@ using UnityEngine;
 
 public class CameraSegue : MonoBehaviour
 {
-
-    [SerializeField]
-    private Transform objE, objD, passaro;
+    private float t = 1;
 
     void Update()
     {
-        if (passaro != null)
-        {
-            Vector3 posCamera = transform.position;
-            posCamera.x = passaro.position.x;//segue a bola
-            posCamera.x = Mathf.Clamp(posCamera.x, objE.position.x, objD.position.x);//limitei ate onde a camera vai
-            transform.position = posCamera;
+        if (GAME_MANAGER.instance.jogoComecou) {
+            if (transform.position.x != GAME_MANAGER.instance.objE.position.x && GAME_MANAGER.instance.passaroLancado == false)
+            {
+                t -= 0.5f * Time.deltaTime;
+
+                transform.position = new Vector3(Mathf.SmoothStep(GAME_MANAGER.instance.objE.position.x, Camera.main.transform.position.x, t), transform.position.y, transform.position.z);
+            }
+            else {
+                t = 1;
+            }
         }
     }
 }

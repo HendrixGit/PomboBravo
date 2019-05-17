@@ -9,10 +9,13 @@ public class GAME_MANAGER : MonoBehaviour
     public GameObject[] passaro;
     public int passarosNum;
     public int passarosEmCena = 0;
-    [SerializeField]
-    private Transform pos;
+    public Transform pos;
     public bool win, jogoComecou;
     public string nomePassaro;
+
+    public bool passaroLancado = false;
+    public Transform objE, objD;
+
 
     void Awake()
     {
@@ -35,6 +38,9 @@ public class GAME_MANAGER : MonoBehaviour
         //passaroPos
         passarosNum = GameObject.FindGameObjectsWithTag("Player").Length;
         passaro = new GameObject[passarosNum];
+        objE = GameObject.FindGameObjectWithTag("PE").GetComponent<Transform>();
+        objD = GameObject.FindGameObjectWithTag("PD").GetComponent<Transform>();
+        StartGame();
 
         for (int x = 0; x < passarosNum; x++) {
             passaro[x] = GameObject.Find("Bird" + x);
