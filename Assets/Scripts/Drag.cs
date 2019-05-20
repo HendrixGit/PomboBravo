@@ -57,6 +57,7 @@ public class Drag : MonoBehaviour
         rayToMT = new Ray(catapult.position, Vector3.zero);
 
         rastro = GetComponentInChildren<TrailRenderer>();
+        rastro.enabled = false;
     }
 
     void Start()
@@ -216,7 +217,7 @@ public class Drag : MonoBehaviour
             passaroRB.isKinematic = false;
             clicked = false;
             rastro.enabled = true;
-            GAME_MANAGER.instance.passaroLancado = false;
+            GAME_MANAGER.instance.passaroLancado = true;
         }
 
     }
