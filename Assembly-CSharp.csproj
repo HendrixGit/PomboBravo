@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\MataPontos.cs" />
+    <Compile Include="Assets\Scripts\AUDIO_MANAGER.cs" />
     <Compile Include="Assets\Scripts\Baixa_Fut.cs" />
     <Compile Include="Assets\Scripts\BombaPassaro.cs" />
     <Compile Include="Assets\Scripts\BotaoLevel.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Assets\Scripts\ScrollCeuCena.cs" />
     <Compile Include="Assets\Scripts\ScrollUI.cs" />
     <Compile Include="Assets\Scripts\TesteWin.cs" />
+    <Compile Include="Assets\Scripts\UI_MANAGER.cs" />
     <Compile Include="Assets\Scripts\Veloz.cs" />
     <Compile Include="Assets\Scripts\Zoom.cs" />
     <Compile Include="Assets\Scripts\ZoomB.cs" />
