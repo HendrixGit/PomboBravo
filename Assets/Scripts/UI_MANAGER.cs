@@ -10,8 +10,7 @@ public class UI_MANAGER : MonoBehaviour
     public Animator painelGameOver, painelWin, painelPause;
     [SerializeField]
     private Button winBtnMenu, winBtnNovamente, WinBtnProximo;
-    [SerializeField]
-    private Animator estrela1, estrela2, estrela3;
+    public Animator estrela1, estrela2, estrela3;
     [SerializeField]
     private Button loseBtnMenu, loseBtnNovamente;
     [SerializeField]
@@ -27,18 +26,7 @@ public class UI_MANAGER : MonoBehaviour
         else {
             Destroy(gameObject);
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SceneManager.sceneLoaded += Carrega;
     }
 
     void Carrega(Scene cena, LoadSceneMode modo) {
@@ -48,6 +36,28 @@ public class UI_MANAGER : MonoBehaviour
         painelPause    = GameObject.Find("Painel_Pause").GetComponent<Animator>();
 
         //btnwin
+        winBtnMenu      = GameObject.Find("Button_Menu").GetComponent<Button>();
+        winBtnNovamente = GameObject.Find("Button_Novamente").GetComponent<Button>();
+        WinBtnProximo   = GameObject.Find("Button_Avancar").GetComponent<Button>();
+
+        //Estrelas
+        estrela1 = GameObject.Find("Estrela1_Win").GetComponent<Animator>();
+        estrela2 = GameObject.Find("Estrela2_Win").GetComponent<Animator>();
+        estrela3 = GameObject.Find("Estrela3_Win").GetComponent<Animator>();
+
+        //btnLose
+        loseBtnMenu      = GameObject.Find("Button_Menu_L").GetComponent<Button>();
+        loseBtnNovamente = GameObject.Find("Button_Novamente_L").GetComponent<Button>();
+
+        //btnPause
+        pauseBtn          = GameObject.Find("Pause").GetComponent<Button>();
+        pauseBtnPlay      = GameObject.Find("play").GetComponent<Button>();
+        pauseBtnNovamente = GameObject.Find("again").GetComponent<Button>();
+        pauseBtnMenu      = GameObject.Find("scene").GetComponent<Button>();
+        pauseBtnLoja      = GameObject.Find("shop").GetComponent<Button>();
+
+        //audio
+        winSom = painelWin.GetComponent<AudioSource>();
 
     }
 

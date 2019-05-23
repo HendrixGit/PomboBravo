@@ -10,11 +10,16 @@ public class GAME_MANAGER : MonoBehaviour
     public int passarosNum;
     public int passarosEmCena = 0;
     public Transform pos;
-    public bool win, jogoComecou;
+    public bool win = false, jogoComecou;
     public string nomePassaro;
 
     public bool passaroLancado = false;
     public Transform objE, objD;
+    public int numPorcosCena;
+    private bool tocaWin, tocaLose = false;
+
+    public bool estrela1Fim, estrela2Fim;
+    public int aux;
 
 
     void Awake()
@@ -45,6 +50,10 @@ public class GAME_MANAGER : MonoBehaviour
         for (int x = 0; x < passarosNum; x++) {
             passaro[x] = GameObject.Find("Bird" + x);
         }
+
+        numPorcosCena = GameObject.FindGameObjectsWithTag("porco").Length;
+        aux = passarosNum;
+
     }
 
     void NascPassaro() {
@@ -68,6 +77,38 @@ public class GAME_MANAGER : MonoBehaviour
 
     void WinGame() {
         jogoComecou = false;
+        UI_MANAGER.instance.painelWin.Play("MenuWin_Anim");
+        if (!UI_MANAGER.instance.winSom.isPlaying && tocaWin == false) {
+            UI_MANAGER.instance.winSom.Play();
+            tocaWin = true;
+        }
+
+        if (tocaWin && !UI_MANAGER.instance.winSom.isPlaying) {
+            if (passarosNum == aux - 1)
+            {
+                UI_MANAGER.instance.estrela1.Play("Estrela1_Anim");
+                if (estrela1Fim)
+                {
+                    UI_MANAGER.instance.estrela2.Play("Estrela2_Anim");
+                    if (estrela2Fim)
+                    {
+                        UI_MANAGER.instance.estrela3.Play("Estrela3_Anim");
+                    }
+                }
+            }
+            else if (passarosNum == aux - 2) {
+                UI_MANAGER.instance.estrela1.Play("Estrela1_Anim");
+                if (estrela1Fim)
+                {
+                    UI_MANAGER.instance.estrela2.Play("Estrela2_Anim");
+                }
+            }
+
+            else if (passarosNum <= aux - 3)
+            {
+                UI_MANAGER.instance.estrela1.Play("Estrela1_Anim");
+            }
+        }
     }
 
     void StartGame() {
@@ -85,7 +126,11 @@ public class GAME_MANAGER : MonoBehaviour
 
     void Update()
     {
-        if (win)
+        if (numPorcosCena <= 0 && passarosNum > 0) {
+            win = true;
+        }
+
+        if (win == true)
         {
             WinGame();
         }
