@@ -21,6 +21,8 @@ public class GAME_MANAGER : MonoBehaviour
     public bool estrela1Fim, estrela2Fim;
     public int aux;
 
+    public int estrelasNum;
+    public bool trava = false;
 
     void Awake()
     {
@@ -76,14 +78,22 @@ public class GAME_MANAGER : MonoBehaviour
     }
 
     void WinGame() {
-        jogoComecou = false;
-        UI_MANAGER.instance.painelWin.Play("MenuWin_Anim");
-        if (!UI_MANAGER.instance.winSom.isPlaying && tocaWin == false) {
-            UI_MANAGER.instance.winSom.Play();
-            tocaWin = true;
-        }
+        if (jogoComecou != false) {
+            jogoComecou = false;
+            UI_MANAGER.instance.painelWin.Play("MenuWin_Anim");
 
-        if (tocaWin && !UI_MANAGER.instance.winSom.isPlaying) {
+            if (!UI_MANAGER.instance.winSom.isPlaying && tocaWin == false)
+            {
+                UI_MANAGER.instance.winSom.Play();
+                tocaWin = true;
+            }
+
+            //pontos
+
+
+        }
+                
+        if (tocaWin && !UI_MANAGER.instance.winSom.isPlaying && trava == false) {
             if (passarosNum == aux - 1)
             {
                 UI_MANAGER.instance.estrela1.Play("Estrela1_Anim");
@@ -93,21 +103,47 @@ public class GAME_MANAGER : MonoBehaviour
                     if (estrela2Fim)
                     {
                         UI_MANAGER.instance.estrela3.Play("Estrela3_Anim");
+                        trava = true;
                     }
                 }
+
+                estrelasNum = 3;
+
             }
-            else if (passarosNum == aux - 2) {
+            else if (passarosNum == aux - 2)
+            {
                 UI_MANAGER.instance.estrela1.Play("Estrela1_Anim");
                 if (estrela1Fim)
                 {
                     UI_MANAGER.instance.estrela2.Play("Estrela2_Anim");
+                    trava = true;
                 }
+
+                estrelasNum = 2;
+
             }
 
             else if (passarosNum <= aux - 3)
             {
                 UI_MANAGER.instance.estrela1.Play("Estrela1_Anim");
+                trava = true;
+                estrelasNum = 1;
             }
+            else {
+                estrelasNum = 0;
+                trava = true;
+            }
+
+            if (SalvarEstrelas.instance.LoadEstrelas(OndeEstou.instance.fase.ToString()) == 0)
+            {
+                SalvarEstrelas.instance.SalvarEstrelasLevel(OndeEstou.instance.fase.ToString(), estrelasNum);
+            }
+            else {
+                if (SalvarEstrelas.instance.LoadEstrelas(OndeEstou.instance.fase.ToString()) < estrelasNum) {
+                    SalvarEstrelas.instance.SalvarEstrelasLevel(OndeEstou.instance.fase.ToString(), estrelasNum);
+                }
+            }
+
         }
     }
 

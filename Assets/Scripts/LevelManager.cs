@@ -49,16 +49,32 @@ public class LevelManager : MonoBehaviour
             btnNew.GetComponentInChildren<Text>().enabled = level.txtAtivo;
             btnNew.GetComponent<Button>().onClick.AddListener(() => ClickLevel("Level" + btnNew.levelTxtBtn.text));
 
-            if (level.desbloqueado == 1) {
+            if (SalvarEstrelas.instance.LoadEstrelas(btnNew.levelTxtBtn.text) == 1)
+            {
+                btnNew.estrela1.enabled = true;
+            }
+            else if (SalvarEstrelas.instance.LoadEstrelas(btnNew.levelTxtBtn.text) == 2) {
+                btnNew.estrela1.enabled = true;
+                btnNew.estrela2.enabled = true;
+            }
+            else if (SalvarEstrelas.instance.LoadEstrelas(btnNew.levelTxtBtn.text) == 3)
+            {
                 btnNew.estrela1.enabled = true;
                 btnNew.estrela2.enabled = true;
                 btnNew.estrela3.enabled = true;
             }
+            else if (SalvarEstrelas.instance.LoadEstrelas(btnNew.levelTxtBtn.text) == 0)
+            {
+                btnNew.estrela1.enabled = false;
+                btnNew.estrela2.enabled = false;
+                btnNew.estrela3.enabled = false;
+            }
+
             btnNovo.transform.SetParent(localBtn, false);
         }
     }
 
-    void ClickLevel(string level) {
+    public void ClickLevel(string level) {
         SceneManager.LoadScene(level);
         print("Clicado");
     }
