@@ -91,9 +91,11 @@
     <Compile Include="Assets\Scripts\Move_Txt_Info.cs" />
     <Compile Include="Assets\Scripts\Multiplo.cs" />
     <Compile Include="Assets\Scripts\OndeEstou.cs" />
+    <Compile Include="Assets\Scripts\POINT_MANAGER.cs" />
     <Compile Include="Assets\Scripts\PorcoAudio.cs" />
     <Compile Include="Assets\Scripts\QuebraParentesco.cs" />
     <Compile Include="Assets\Scripts\SalvarEstrelas.cs" />
+    <Compile Include="Assets\Scripts\SalvarPontuacao.cs" />
     <Compile Include="Assets\Scripts\SaveData\SalvaDados.cs" />
     <Compile Include="Assets\Scripts\ScrollCeuCena.cs" />
     <Compile Include="Assets\Scripts\ScrollUI.cs" />

@@ -15,7 +15,8 @@ public class UI_MANAGER : MonoBehaviour
     private Button loseBtnMenu, loseBtnNovamente;
     [SerializeField]
     private Button pauseBtn, pauseBtnPlay, pauseBtnNovamente, pauseBtnMenu, pauseBtnLoja;
-    public AudioSource winSom;
+    public AudioSource winSom, loseSom;
+    public Text pontosTxt, bestPontoTxt;
 
     void Awake() {
         if (instance == null)
@@ -57,8 +58,12 @@ public class UI_MANAGER : MonoBehaviour
         pauseBtnLoja      = GameObject.Find("shop").GetComponent<Button>();
 
         //audio
-        winSom = painelWin.GetComponent<AudioSource>();
+        winSom  = painelWin.GetComponent<AudioSource>();
+        loseSom = painelGameOver.GetComponent<AudioSource>();
 
+        //Pontos
+        pontosTxt    = GameObject.FindGameObjectWithTag("pointval").GetComponent<Text>();
+        bestPontoTxt = GameObject.FindGameObjectWithTag("ptbest").GetComponent<Text>();
     }
 
 }

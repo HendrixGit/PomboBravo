@@ -15,6 +15,8 @@ TagManager:
   - LF
   - PE
   - PD
+  - pointval
+  - ptbest
   layers:
   - Default
   - TransparentFX

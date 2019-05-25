@@ -40,6 +40,8 @@ public class ImpactCode : MonoBehaviour
                 audioObj.clip = clips[1];
                 audioObj.Play();
                 Destroy(gameObject,1);
+                GAME_MANAGER.instance.pontosGame  += 1000;
+                UI_MANAGER.instance.pontosTxt.text = GAME_MANAGER.instance.pontosGame.ToString();
             }
         }
         else if (col.relativeVelocity.magnitude > 12 && col.gameObject.CompareTag("Player")) {
@@ -47,6 +49,8 @@ public class ImpactCode : MonoBehaviour
             audioObj.clip = clips[1];
             audioObj.Play();
             Destroy(gameObject,1);
+            GAME_MANAGER.instance.pontosGame  += 1000;
+            UI_MANAGER.instance.pontosTxt.text = GAME_MANAGER.instance.pontosGame.ToString();
         }
     }
 

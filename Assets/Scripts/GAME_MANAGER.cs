@@ -17,12 +17,15 @@ public class GAME_MANAGER : MonoBehaviour
     public Transform objE, objD;
     public int numPorcosCena;
     private bool tocaWin, tocaLose = false;
+    public bool lose = false;
 
     public bool estrela1Fim, estrela2Fim;
     public int aux;
 
     public int estrelasNum;
     public bool trava = false;
+
+    public int pontosGame, bestPontoGame;
 
     void Awake()
     {
@@ -75,6 +78,11 @@ public class GAME_MANAGER : MonoBehaviour
     void GameOver()
     {
         jogoComecou = false;
+        UI_MANAGER.instance.painelGameOver.Play("MenuLose_Anim");
+        if (!UI_MANAGER.instance.loseSom.isPlaying && tocaLose == false) {
+            UI_MANAGER.instance.loseSom.Play();
+            tocaLose = true;
+        }
     }
 
     void WinGame() {
@@ -89,7 +97,7 @@ public class GAME_MANAGER : MonoBehaviour
             }
 
             //pontos
-
+            POINT_MANAGER.instance.MelhorPontuacaoSave(OndeEstou.instance.faseN, pontosGame);
 
         }
                 
@@ -148,29 +156,43 @@ public class GAME_MANAGER : MonoBehaviour
     }
 
     void StartGame() {
-        jogoComecou = true;
+        jogoComecou    = true;
         passarosEmCena = 0;
-        win = false;
+        win  = false;
+        lose = false;
+
+        pontosGame    = 0;
+        bestPontoGame = POINT_MANAGER.instance.MelhorPontuacaoLoad(OndeEstou.instance.faseN);
+
+        UI_MANAGER.instance.pontosTxt.text    = pontosGame.ToString();
+        UI_MANAGER.instance.bestPontoTxt.text = bestPontoGame.ToString();
     }
 
-    void Start()
-    {
-        if (instance == null) {
-
-        }
+    void Start() {
+        StartGame();
     }
+
 
     void Update()
     {
-        if (numPorcosCena <= 0 && passarosNum > 0) {
+        if (numPorcosCena <= 0 && passarosNum > 0)
+        {
             win = true;
+        }
+        else if (numPorcosCena > 0 && passarosNum <= 0) {
+            lose = true;
         }
 
         if (win == true)
         {
             WinGame();
         }
-        else {
+        else if (lose) {
+            GameOver();
+        }
+        
+        if(jogoComecou)
+        {
             NascPassaro();
         }
     }
