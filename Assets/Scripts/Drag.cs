@@ -208,12 +208,15 @@ public class Drag : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (transform.position == GAME_MANAGER.instance.pos.position) {
-            clicked = true;
-            rastro.enabled = false;
-            estouPronto = true;
+        if (!GAME_MANAGER.instance.pausado)
+        {
+            if (transform.position == GAME_MANAGER.instance.pos.position)
+            {
+                clicked = true;
+                rastro.enabled = false;
+                estouPronto = true;
+            }
         }
-        
     }
 
     void OnMouseUp()
@@ -226,6 +229,15 @@ public class Drag : MonoBehaviour
             audioPassaro.Play();
         }
 
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("moedastag")) {
+            GAME_MANAGER.instance.moedasGame  += 50;
+            UI_MANAGER.instance.moedasTxt.text = GAME_MANAGER.instance.moedasGame.ToString();
+            Destroy(col.gameObject);
+        }
     }
 
 }

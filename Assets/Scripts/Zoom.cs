@@ -12,31 +12,30 @@ public class Zoom : MonoBehaviour
     public float tempoParaDuploClick;
     public float Delay;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) {
-            if (umClick == false)
-            {
-                umClick = true;
-                tempoParaDuploClick = Time.time;
+        if (GAME_MANAGER.instance.jogoComecou && !GAME_MANAGER.instance.pausado) {
+
+            if (Input.GetMouseButtonDown(0)) {
+                if (umClick == false)
+                {
+                    umClick = true;
+                    tempoParaDuploClick = Time.time;
+                }
+                else {
+                    umClick = false;
+                    liberaZoom = true;
+                }
             }
-            else {
-                umClick    = false;
-                liberaZoom = true;
+            if (umClick == true) {
+                if (Time.time - tempoParaDuploClick > Delay) {
+                    umClick = false;
+                }
             }
+
         }
-        if (umClick == true) {
-            if (Time.time - tempoParaDuploClick > Delay) {
-                umClick = false;
-            }
-        }
+
         if (Camera.main.orthographicSize > 5 && trava == 1)
         {
             if (liberaZoom == true)

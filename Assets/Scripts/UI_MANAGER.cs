@@ -17,6 +17,8 @@ public class UI_MANAGER : MonoBehaviour
     private Button pauseBtn, pauseBtnPlay, pauseBtnNovamente, pauseBtnMenu, pauseBtnLoja;
     public AudioSource winSom, loseSom;
     public Text pontosTxt, bestPontoTxt;
+    public Text moedasTxt;
+    private Image fundoPreto;
 
     void Awake() {
         if (instance == null)
@@ -64,6 +66,31 @@ public class UI_MANAGER : MonoBehaviour
         //Pontos
         pontosTxt    = GameObject.FindGameObjectWithTag("pointval").GetComponent<Text>();
         bestPontoTxt = GameObject.FindGameObjectWithTag("ptbest").GetComponent<Text>();
+
+        //moedas
+        moedasTxt    = GameObject.FindGameObjectWithTag("moedatxt").GetComponent<Text>();
+
+        //imagem fundo preto
+        fundoPreto = GameObject.FindGameObjectWithTag("fundopreto").GetComponent<Image>();
+
+        //eventos
+        pauseBtn.onClick.AddListener(Pausar);
+        pauseBtnPlay.onClick.AddListener(PausarInverse);
+    }
+
+    public void Pausar() {
+        GAME_MANAGER.instance.pausado = true;
+        Time.timeScale = 0;
+        fundoPreto.enabled = true;
+        painelPause.Play("MenuPause_Anim");
+    }
+
+    public void PausarInverse()
+    {
+        GAME_MANAGER.instance.pausado = false;
+        Time.timeScale = 1;
+        fundoPreto.enabled = false;
+        painelPause.Play("MenuPause_Anim_Reverse");
     }
 
 }

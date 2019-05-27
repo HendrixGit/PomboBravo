@@ -17,6 +17,9 @@ TagManager:
   - PD
   - pointval
   - ptbest
+  - moedatxt
+  - moedastag
+  - fundopreto
   layers:
   - Default
   - TransparentFX

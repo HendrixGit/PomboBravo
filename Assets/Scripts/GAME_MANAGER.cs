@@ -26,6 +26,8 @@ public class GAME_MANAGER : MonoBehaviour
     public bool trava = false;
 
     public int pontosGame, bestPontoGame;
+    public int moedasGame;
+    public bool pausado = false;
 
     void Awake()
     {
@@ -86,6 +88,9 @@ public class GAME_MANAGER : MonoBehaviour
     }
 
     void WinGame() {
+
+        SCORE_MANAGER.instance.SalvarDadosMoedas(moedasGame);
+
         if (jogoComecou != false) {
             jogoComecou = false;
             UI_MANAGER.instance.painelWin.Play("MenuWin_Anim");
@@ -166,6 +171,8 @@ public class GAME_MANAGER : MonoBehaviour
 
         UI_MANAGER.instance.pontosTxt.text    = pontosGame.ToString();
         UI_MANAGER.instance.bestPontoTxt.text = bestPontoGame.ToString();
+        UI_MANAGER.instance.moedasTxt.text    = SCORE_MANAGER.instance.LoadMoedas().ToString();
+        moedasGame                            = SCORE_MANAGER.instance.LoadMoedas();
     }
 
     void Start() {

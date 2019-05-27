@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\SalvarEstrelas.cs" />
     <Compile Include="Assets\Scripts\SalvarPontuacao.cs" />
     <Compile Include="Assets\Scripts\SaveData\SalvaDados.cs" />
+    <Compile Include="Assets\Scripts\SCORE_MANAGER.cs" />
     <Compile Include="Assets\Scripts\ScrollCeuCena.cs" />
     <Compile Include="Assets\Scripts\ScrollUI.cs" />
     <Compile Include="Assets\Scripts\TesteWin.cs" />
