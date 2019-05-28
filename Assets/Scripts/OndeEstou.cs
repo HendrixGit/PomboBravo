@@ -9,6 +9,8 @@ public class OndeEstou : MonoBehaviour
     public int fase = -1;
     public string faseN;
 
+    public string faseMestra;
+
     void Awake() {
         if (instance == null)
         {
@@ -28,6 +30,12 @@ public class OndeEstou : MonoBehaviour
         faseN = SceneManager.GetActiveScene().name;
     }
 
+    //mestra
+    public void Mestra(string nome) {
+        faseMestra = nome;
+        SceneManager.LoadScene(faseMestra);
+        print(nome);
+    }
 
 
 }
