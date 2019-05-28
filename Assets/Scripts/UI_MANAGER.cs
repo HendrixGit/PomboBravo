@@ -8,8 +8,7 @@ public class UI_MANAGER : MonoBehaviour
 {
     public static UI_MANAGER instance;
     public Animator painelGameOver, painelWin, painelPause;
-    [SerializeField]
-    private Button winBtnMenu, winBtnNovamente, WinBtnProximo;
+    public Button winBtnMenu, winBtnNovamente, WinBtnProximo;
     public Animator estrela1, estrela2, estrela3;
     [SerializeField]
     private Button loseBtnMenu, loseBtnNovamente;
@@ -74,10 +73,25 @@ public class UI_MANAGER : MonoBehaviour
         fundoPreto = GameObject.FindGameObjectWithTag("fundopreto").GetComponent<Image>();
 
         //eventos
+
+        //pause
         pauseBtn.onClick.AddListener(Pausar);
         pauseBtnPlay.onClick.AddListener(PausarInverse);
+        pauseBtnNovamente.onClick.AddListener(Again);
+        pauseBtnMenu.onClick.AddListener(GoMenu);
+        pauseBtnLoja.onClick.AddListener(GoLoja);
+
+        //lose
+        loseBtnMenu.onClick.AddListener(GoMenu);
+        loseBtnNovamente.onClick.AddListener(Again);
+
+        //win
+        winBtnMenu.onClick.AddListener(GoMenu);
+        winBtnNovamente.onClick.AddListener(Again);
+        WinBtnProximo.onClick.AddListener(ProximaFase);
     }
 
+    //metodos pause
     public void Pausar() {
         GAME_MANAGER.instance.pausado = true;
         Time.timeScale = 0;
@@ -91,6 +105,30 @@ public class UI_MANAGER : MonoBehaviour
         Time.timeScale = 1;
         fundoPreto.enabled = false;
         painelPause.Play("MenuPause_Anim_Reverse");
+    }
+
+    //metodo jogar novamente
+    public void Again() {
+        SceneManager.LoadScene(OndeEstou.instance.fase);
+        Time.timeScale = 1;
+        GAME_MANAGER.instance.pausado = false;
+    }
+
+    //metodo pause-menu
+    public void GoMenu() {
+        SceneManager.LoadScene("MenuFases2");
+        Time.timeScale = 1;
+        GAME_MANAGER.instance.pausado = false;
+    }
+
+    //metodo pause loja
+    public void GoLoja() {
+
+    }
+
+    //metodo avancar
+    public void ProximaFase() {
+        SceneManager.LoadScene(OndeEstou.instance.fase + 1);
     }
 
 }

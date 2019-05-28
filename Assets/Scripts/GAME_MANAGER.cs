@@ -117,6 +117,10 @@ public class GAME_MANAGER : MonoBehaviour
                     {
                         UI_MANAGER.instance.estrela3.Play("Estrela3_Anim");
                         trava = true;
+
+                        UI_MANAGER.instance.winBtnMenu.interactable      = true;
+                        UI_MANAGER.instance.winBtnNovamente.interactable = true;
+                        UI_MANAGER.instance.WinBtnProximo.interactable   = true;
                     }
                 }
 
@@ -130,6 +134,10 @@ public class GAME_MANAGER : MonoBehaviour
                 {
                     UI_MANAGER.instance.estrela2.Play("Estrela2_Anim");
                     trava = true;
+
+                    UI_MANAGER.instance.winBtnMenu.interactable = true;
+                    UI_MANAGER.instance.winBtnNovamente.interactable = true;
+                    UI_MANAGER.instance.WinBtnProximo.interactable = true;
                 }
 
                 estrelasNum = 2;
@@ -141,6 +149,10 @@ public class GAME_MANAGER : MonoBehaviour
                 UI_MANAGER.instance.estrela1.Play("Estrela1_Anim");
                 trava = true;
                 estrelasNum = 1;
+
+                UI_MANAGER.instance.winBtnMenu.interactable = true;
+                UI_MANAGER.instance.winBtnNovamente.interactable = true;
+                UI_MANAGER.instance.WinBtnProximo.interactable = true;
             }
             else {
                 estrelasNum = 0;
@@ -165,14 +177,21 @@ public class GAME_MANAGER : MonoBehaviour
         passarosEmCena = 0;
         win  = false;
         lose = false;
+        tocaWin  = false;
+        tocaLose = false;
 
-        pontosGame    = 0;
-        bestPontoGame = POINT_MANAGER.instance.MelhorPontuacaoLoad(OndeEstou.instance.faseN);
+        pontosGame     = 0;
+        bestPontoGame  = POINT_MANAGER.instance.MelhorPontuacaoLoad(OndeEstou.instance.faseN);
+        passaroLancado = false;//resolve bug passaro ao pausar de a camera nao acompanhar na morte do mesmo
 
         UI_MANAGER.instance.pontosTxt.text    = pontosGame.ToString();
         UI_MANAGER.instance.bestPontoTxt.text = bestPontoGame.ToString();
         UI_MANAGER.instance.moedasTxt.text    = SCORE_MANAGER.instance.LoadMoedas().ToString();
         moedasGame                            = SCORE_MANAGER.instance.LoadMoedas();
+
+        UI_MANAGER.instance.winBtnMenu.interactable      = false;
+        UI_MANAGER.instance.winBtnNovamente.interactable = false;
+        UI_MANAGER.instance.WinBtnProximo.interactable   = false;
     }
 
     void Start() {
