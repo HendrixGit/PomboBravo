@@ -13,7 +13,7 @@ public class LoadingInfo : MonoBehaviour
     }
 
     IEnumerator LoadGameProg() {
-        AsyncOperation async = SceneManager.LoadSceneAsync(1);
+        AsyncOperation async = SceneManager.LoadSceneAsync(6);
         while (!async.isDone) {
             carregando.enabled = true;
             yield return null;

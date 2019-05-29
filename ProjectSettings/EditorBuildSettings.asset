@@ -9,8 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Inicial.unity
     guid: dbb95506c50f4b5409406bb7488c9390
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/Level1_Mestra1.unity
     guid: 1c0600df814411646949f55fad195f7c
+  - enabled: 1
+    path: Assets/Scenes/Level2_Mestra1.unity
+    guid: 3cdb1781ccc4e1b4682984b34e86c39b
+  - enabled: 1
+    path: Assets/Scenes/Level1_Mestra2.unity
+    guid: de8d9512ee3fdd1488b4b4dd4f2a0c0a
+  - enabled: 1
+    path: Assets/Scenes/Level2_Mestra2.unity
+    guid: 627299121f1a0f941ae2f562b2eeaa39
   - enabled: 1
     path: Assets/Scenes/Menu1.unity
     guid: d3057dd08738ad84eb237f795b1c15da

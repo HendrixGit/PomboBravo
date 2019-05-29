@@ -159,13 +159,13 @@ public class GAME_MANAGER : MonoBehaviour
                 trava = true;
             }
 
-            if (SalvarEstrelas.instance.LoadEstrelas(OndeEstou.instance.fase.ToString()) == 0)
+            if (SalvarEstrelas.instance.LoadEstrelas(OndeEstou.instance.fase.ToString(), OndeEstou.instance.faseMestra) == 0)
             {
-                SalvarEstrelas.instance.SalvarEstrelasLevel(OndeEstou.instance.fase.ToString(), estrelasNum);
+                SalvarEstrelas.instance.SalvarEstrelasLevel(OndeEstou.instance.fase.ToString(), estrelasNum, OndeEstou.instance.faseMestra);
             }
             else {
-                if (SalvarEstrelas.instance.LoadEstrelas(OndeEstou.instance.fase.ToString()) < estrelasNum) {
-                    SalvarEstrelas.instance.SalvarEstrelasLevel(OndeEstou.instance.fase.ToString(), estrelasNum);
+                if (SalvarEstrelas.instance.LoadEstrelas(OndeEstou.instance.fase.ToString(), OndeEstou.instance.faseMestra) < estrelasNum) {
+                    SalvarEstrelas.instance.SalvarEstrelasLevel(OndeEstou.instance.fase.ToString(), estrelasNum, OndeEstou.instance.faseMestra);
                 }
             }
 

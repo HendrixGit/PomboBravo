@@ -20,10 +20,10 @@ public class SalvarPontuacao : MonoBehaviour
         }
     }
 
-    public void SalvarPontuacaoLevel(string levelAtual, int pontos)
+    public void SalvarPontuacaoLevel(string levelAtual, int pontos, string faseMestra)
     {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream fs      = File.Create(Application.persistentDataPath + "/Level" + levelAtual + "best.data");
+        FileStream fs      = File.Create(Application.persistentDataPath + "/Level" + levelAtual + "best" + faseMestra + ".data");
 
         PontuacaoClass pontuacao = new PontuacaoClass();
         pontuacao.pontosLevel    = pontos;
@@ -31,13 +31,13 @@ public class SalvarPontuacao : MonoBehaviour
         fs.Close();
     }
 
-    public int LoadPontuacao(string levelAtual)
+    public int LoadPontuacao(string levelAtual, string faseMestra)
     {
         int temp = 0;
-        if (File.Exists(Application.persistentDataPath + "/Level" + levelAtual + "best.data"))
+        if (File.Exists(Application.persistentDataPath + "/Level" + levelAtual + "best" + faseMestra + ".data"))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream fs      = File.Open(Application.persistentDataPath + "/Level" + levelAtual + "best.data", FileMode.Open);
+            FileStream fs      = File.Open(Application.persistentDataPath + "/Level" + levelAtual + "best" + faseMestra + ".data", FileMode.Open);
 
             PontuacaoClass pontuacao = (PontuacaoClass)bf.Deserialize(fs);
             fs.Close();

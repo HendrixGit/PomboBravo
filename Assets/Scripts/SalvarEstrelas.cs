@@ -20,10 +20,10 @@ public class SalvarEstrelas : MonoBehaviour
         }
     }
 
-    public void SalvarEstrelasLevel(string levelAtual, int estrelasNum)
+    public void SalvarEstrelasLevel(string levelAtual, int estrelasNum, string faseMestra)
     {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream fs      = File.Create(Application.persistentDataPath + "/Level" + levelAtual + "estrelas.data");
+        FileStream fs      = File.Create(Application.persistentDataPath + "/Level" + levelAtual + "_" + faseMestra + "estrelas.data");
 
         EstrelaClass estrelasObj = new EstrelaClass();
         estrelasObj.estrelas     = estrelasNum;
@@ -31,13 +31,13 @@ public class SalvarEstrelas : MonoBehaviour
         fs.Close();
     }
 
-    public int LoadEstrelas(string levelAtual)
+    public int LoadEstrelas(string levelAtual, string faseMestra)
     {
         int temp = 0;
-        if (File.Exists(Application.persistentDataPath + "/Level" + levelAtual + "estrelas.data"))
+        if (File.Exists(Application.persistentDataPath + "/Level" + levelAtual + "_" + faseMestra + "estrelas.data"))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream fs      = File.Open(Application.persistentDataPath + "/Level" + levelAtual + "estrelas.data", FileMode.Open);
+            FileStream fs      = File.Open(Application.persistentDataPath + "/Level" + levelAtual + "_" + faseMestra + "estrelas.data", FileMode.Open);
 
             EstrelaClass estrelasObj = (EstrelaClass)bf.Deserialize(fs);
             fs.Close();
