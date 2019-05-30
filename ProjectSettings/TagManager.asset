@@ -20,6 +20,10 @@ TagManager:
   - moedatxt
   - moedastag
   - fundopreto
+  - textstar
+  - textstar2
+  - textpontos
+  - textpontos2
   layers:
   - Default
   - TransparentFX

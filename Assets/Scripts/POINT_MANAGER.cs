@@ -16,22 +16,22 @@ public class POINT_MANAGER : MonoBehaviour
         }
     }
 
-    public void MelhorPontuacaoSave(string level, int pontos) {
-        if (SalvarPontuacao.instance.LoadPontuacao(level, OndeEstou.instance.faseMestra) == 0)
+    public void MelhorPontuacaoSave(string level, int pontos, string faseMestra) {
+        if (SalvarPontuacao.instance.LoadPontuacao(level, faseMestra) == 0)
         {
-            SalvarPontuacao.instance.SalvarPontuacaoLevel(level, pontos, OndeEstou.instance.faseMestra);
+            SalvarPontuacao.instance.SalvarPontuacaoLevel(level, pontos, faseMestra);
         }
         else {
-            if (GAME_MANAGER.instance.pontosGame >  SalvarPontuacao.instance.LoadPontuacao(level, OndeEstou.instance.faseMestra)) {
-                SalvarPontuacao.instance.SalvarPontuacaoLevel(level, pontos, OndeEstou.instance.faseMestra);
+            if (GAME_MANAGER.instance.pontosGame >  SalvarPontuacao.instance.LoadPontuacao(level, faseMestra)) {
+                SalvarPontuacao.instance.SalvarPontuacaoLevel(level, pontos, faseMestra);
             }
         }
     }
 
-    public int MelhorPontuacaoLoad(string level) {
-        if (SalvarPontuacao.instance.LoadPontuacao(level, OndeEstou.instance.faseMestra) != 0)
+    public int MelhorPontuacaoLoad(string level, string faseMestra) {
+        if (SalvarPontuacao.instance.LoadPontuacao(level, faseMestra) != 0)
         {
-            return SalvarPontuacao.instance.LoadPontuacao(level, OndeEstou.instance.faseMestra);
+            return SalvarPontuacao.instance.LoadPontuacao(level, faseMestra);
         }
         else {
             return 0;

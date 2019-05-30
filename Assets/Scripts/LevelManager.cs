@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 public class LevelManager : MonoBehaviour
 {
@@ -23,6 +20,8 @@ public class LevelManager : MonoBehaviour
     public GameObject botao;
     public Transform  localBtn;
     public List<Level> levelList;
+
+    private int LevelsMestre1 = 0, LevelsMestre2 = 2;
 
     void Awake()
     {
@@ -48,7 +47,7 @@ public class LevelManager : MonoBehaviour
             BotaoLevel btnNew       = btnNovo.GetComponent<BotaoLevel>();
             btnNew.levelTxtBtn.text = level.levelText;
 
-            if (LoadLevel(btnNew.realLevel, OndeEstou.instance.faseMestra) == 1) {
+            if (SalvarLevelGame.instance.LoadLevel(level.levelReal, OndeEstou.instance.faseMestra) == 1) {
                 level.desbloqueado = 1;
                 level.habilitado   = true;
                 level.txtAtivo     = true;
@@ -60,7 +59,7 @@ public class LevelManager : MonoBehaviour
             btnNew.GetComponent<Button>().onClick.AddListener(() => ClickLevel("Level" + level.levelReal + "_" + OndeEstou.instance.faseMestra));
             btnNew.realLevel = level.levelReal;
 
-            if (SalvarEstrelas.instance.LoadEstrelas(btnNew.realLevel, OndeEstou.instance.faseMestra) == 1)
+            if (SalvarEstrelas.instance.LoadEstrelas(btnNew.realLevel, OndeEstou.instance.faseMestra)       == 1)
             {
                 btnNew.estrela1.enabled = true;
             }
@@ -83,40 +82,22 @@ public class LevelManager : MonoBehaviour
 
             btnNovo.transform.SetParent(localBtn, false);
         }
+
+        if (OndeEstou.instance.faseMestra == "Mestra1") {
+            LevelsMestre1++;
+            SalvarLevelGame.instance.SalvarLevelsMestra(LevelsMestre1, 1);
+        }
+        else
+        if (OndeEstou.instance.faseMestra == "Mestra2")
+        {
+            LevelsMestre2++;
+            SalvarLevelGame.instance.SalvarLevelsMestra(LevelsMestre2, 2);
+        }
+
     }
 
     public void ClickLevel(string level) {
         SceneManager.LoadScene(level);
     }
-
-    public void SalvarLevel(string levelAtual, string faseMestra) {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream fs      = File.Create(Application.persistentDataPath + "/Level" + levelAtual + "_" + faseMestra + ".data");
-
-        LevelClass levelObj = new LevelClass();
-        levelObj.ativo      = 1;
-        bf.Serialize(fs, levelObj);
-        fs.Close();
-    }
-
-    public int LoadLevel(string levelAtual, string faseMestra)
-    {
-        int temp = 0;
-        if (File.Exists(Application.persistentDataPath + "/Level" + levelAtual + "_" + faseMestra +  ".data"))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream fs      = File.Open(Application.persistentDataPath + "/Level" + levelAtual + "_" + faseMestra + ".data", FileMode.Open);
-
-            LevelClass levelObj = (LevelClass)bf.Deserialize(fs);
-            fs.Close();
-            temp = levelObj.ativo;
-        }
-        return temp;
-    }
-
-    [System.Serializable]
-    public class LevelClass {
-        public int ativo;
-    }
-
+   
 }

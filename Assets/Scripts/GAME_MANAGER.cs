@@ -39,9 +39,7 @@ public class GAME_MANAGER : MonoBehaviour
         else {
             Destroy(gameObject);
         }
-
         SceneManager.sceneLoaded += Carrega;
-
     }
 
     void Carrega(Scene cena, LoadSceneMode modo) {
@@ -102,7 +100,9 @@ public class GAME_MANAGER : MonoBehaviour
             }
 
             //pontos
-            POINT_MANAGER.instance.MelhorPontuacaoSave(OndeEstou.instance.faseN, pontosGame);
+            POINT_MANAGER.instance.MelhorPontuacaoSave(OndeEstou.instance.fase.ToString(), pontosGame, OndeEstou.instance.faseMestra);
+            int tempOnde = OndeEstou.instance.fase + 1;
+            SalvarLevelGame.instance.SalvarLevel(tempOnde.ToString(), OndeEstou.instance.faseMestra);
 
         }
                 
@@ -179,9 +179,11 @@ public class GAME_MANAGER : MonoBehaviour
         lose = false;
         tocaWin  = false;
         tocaLose = false;
+        estrelasNum = 0;
+        trava       = false;
 
         pontosGame     = 0;
-        bestPontoGame  = POINT_MANAGER.instance.MelhorPontuacaoLoad(OndeEstou.instance.faseN);
+        bestPontoGame  = POINT_MANAGER.instance.MelhorPontuacaoLoad(OndeEstou.instance.fase.ToString(), OndeEstou.instance.faseMestra);
         passaroLancado = false;//resolve bug passaro ao pausar de a camera nao acompanhar na morte do mesmo
 
         UI_MANAGER.instance.pontosTxt.text    = pontosGame.ToString();

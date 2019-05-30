@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class OndeEstou : MonoBehaviour
 {
@@ -22,7 +23,6 @@ public class OndeEstou : MonoBehaviour
         }
 
         SceneManager.sceneLoaded += VerificaFase;
-
     }
 
     public void VerificaFase(Scene cena, LoadSceneMode modo) {
