@@ -81,19 +81,21 @@ public class LevelManager : MonoBehaviour
             }
 
             btnNovo.transform.SetParent(localBtn, false);
-        }
 
-        if (OndeEstou.instance.faseMestra == "Mestra1") {
-            LevelsMestre1++;
-            SalvarLevelGame.instance.SalvarLevelsMestra(LevelsMestre1, 1);
-        }
-        else
-        if (OndeEstou.instance.faseMestra == "Mestra2")
-        {
-            LevelsMestre2++;
-            SalvarLevelGame.instance.SalvarLevelsMestra(LevelsMestre2, 2);
-        }
+            if (OndeEstou.instance.faseMestra == "Mestra1")
+            {
+                LevelsMestre1++;
+                SalvarLevelGame.instance.SalvarLevelsMestra(LevelsMestre1, 1);
+                print(LevelsMestre1);
+            }
+            else
+       if (OndeEstou.instance.faseMestra == "Mestra2")
+            {
+                LevelsMestre2++;
+                SalvarLevelGame.instance.SalvarLevelsMestra(LevelsMestre2, 2);
+            }
 
+        }
     }
 
     public void ClickLevel(string level) {

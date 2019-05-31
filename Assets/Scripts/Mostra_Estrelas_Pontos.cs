@@ -16,21 +16,28 @@ public class Mostra_Estrelas_Pontos : MonoBehaviour
         estrelasVal = new int[2];
         pontosVal   = new int[2];
 
-        for (int a = 0; a > 2; a++) {
+        for (int a = 0; a < 2; a++) {
             for (int x = 0; x <= SalvarLevelGame.instance.LoadLevelsMestra(a + 1); x++) {
-                estrelasVal[a] += SalvarEstrelas.instance.LoadEstrelas(x.ToString(), (a + 1).ToString());
+                
+                estrelasVal[a] += SalvarEstrelas.instance.LoadEstrelas(x.ToString(), "Mestra"  + (a + 1).ToString());
                 SalvarEstrelas.instance.SalvarEstrelasTotalMestra((a + 1).ToString(), estrelasVal[a]);
+
+                pontosVal[a]   += SalvarPontuacao.instance.LoadPontuacao(x.ToString(), "Mestra" + (a + 1).ToString());
+                SalvarPontuacao.instance.SalvarPontosTotalMestra((a + 1).ToString(), pontosVal[a]);
             }
         }
 
         estrelas  = GameObject.FindWithTag("textstar").GetComponent<Text>();
-        estrelas2 = GameObject.FindWithTag("textstar").GetComponent<Text>();
+        estrelas2 = GameObject.FindWithTag("textstar2").GetComponent<Text>();
+
+        estrelas.text  = SalvarEstrelas.instance.LoadEstrelasMestra1().ToString();
+        estrelas2.text = SalvarEstrelas.instance.LoadEstrelasMestra2().ToString();
 
         pontos  = GameObject.FindWithTag("textpontos").GetComponent<Text>();
         pontos2 = GameObject.FindWithTag("textpontos2").GetComponent<Text>();
 
-
-
+        pontos.text  = SalvarPontuacao.instance.LoadPontuacaoMestra1().ToString();
+        pontos2.text = SalvarPontuacao.instance.LoadPontuacaoMestra2().ToString();
     }
 
 }

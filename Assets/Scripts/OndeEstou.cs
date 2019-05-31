@@ -34,7 +34,6 @@ public class OndeEstou : MonoBehaviour
     public void Mestra(string nome) {
         faseMestra = nome;
         SceneManager.LoadScene(faseMestra);
-        print(nome);
     }
 
 
