@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\CriaPassaroUI.cs" />
     <Compile Include="Assets\Scripts\Drag.cs" />
     <Compile Include="Assets\Scripts\Estrelas_Audio.cs" />
+    <Compile Include="Assets\Scripts\ExibePerdeMoedas.cs" />
     <Compile Include="Assets\Scripts\GAME_MANAGER.cs" />
     <Compile Include="Assets\Scripts\Impact_Porco.cs" />
     <Compile Include="Assets\Scripts\ImpactCode.cs" />

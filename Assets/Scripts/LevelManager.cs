@@ -86,7 +86,6 @@ public class LevelManager : MonoBehaviour
             {
                 LevelsMestre1++;
                 SalvarLevelGame.instance.SalvarLevelsMestra(LevelsMestre1, 1);
-                print(LevelsMestre1);
             }
             else
        if (OndeEstou.instance.faseMestra == "Mestra2")
