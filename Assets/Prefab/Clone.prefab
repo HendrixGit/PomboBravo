@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 6747094273643560612}
   - component: {fileID: 6747094273643560613}
   - component: {fileID: 6747094273643560794}
+  - component: {fileID: 8030317169380636244}
   m_Layer: 8
   m_Name: Clone
-  m_TagString: Player
+  m_TagString: clone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,9 +72,9 @@ SpriteRenderer:
   m_SortingLayerID: 2030872839
   m_SortingLayer: 1
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 86ce912717672b8429c58e6960c12e25, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b163418dc486ac4084d310174278d29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.28, y: 1.28}
@@ -95,9 +96,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0673579, y: -0.015448272}
+  m_Offset: {x: -0.0529595, y: -0.00071567297}
   serializedVersion: 2
-  m_Radius: 0.52950794
+  m_Radius: 0.32570654
 --- !u!50 &6747094273643560794
 Rigidbody2D:
   serializedVersion: 4
@@ -119,6 +120,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8030317169380636244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6747094273643560792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7d48926134a1948a74f17f566795f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6747094274521264310
 GameObject:
   m_ObjectHideFlags: 0

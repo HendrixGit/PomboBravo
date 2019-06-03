@@ -44,7 +44,7 @@ public class ImpactCode : MonoBehaviour
                 UI_MANAGER.instance.pontosTxt.text = GAME_MANAGER.instance.pontosGame.ToString();
             }
         }
-        else if (col.relativeVelocity.magnitude > 12 && col.gameObject.CompareTag("Player")) {
+        else if (col.relativeVelocity.magnitude > 12 && col.gameObject.CompareTag("Player") || col.gameObject.CompareTag("clone")) {
             Instantiate(bomb, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             audioObj.clip = clips[1];
             audioObj.Play();

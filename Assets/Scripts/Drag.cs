@@ -37,6 +37,7 @@ public class Drag : MonoBehaviour
 
     public AudioSource audioPassaro;
     public GameObject AudioMortePassaro;
+    public GameObject pontoMorte;
 
     void Awake() {
 
@@ -44,6 +45,7 @@ public class Drag : MonoBehaviour
         lineFront  = GameObject.FindWithTag("LF").GetComponent<LineRenderer>();
         lineBack   = GameObject.FindWithTag("LB").GetComponent<LineRenderer>();
         catapultRB = GameObject.FindWithTag("LB").GetComponent<Rigidbody2D>();
+        pontoMorte = GameObject.Find("Morre");
         audioPassaro = GetComponent<AudioSource>();
         spring.connectedBody = catapultRB;
 
@@ -168,7 +170,7 @@ public class Drag : MonoBehaviour
 
     void MataPassaro() {
 
-        if (passaroRB.velocity.magnitude == 0 && !passaroRB.isKinematic) {
+        if (passaroRB.velocity.magnitude == 0 && !passaroRB.isKinematic || transform.position.x > pontoMorte.transform.position.x) {
             StartCoroutine(TempoMorte());
         }
     }

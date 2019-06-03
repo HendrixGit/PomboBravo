@@ -24,6 +24,7 @@ TagManager:
   - textstar2
   - textpontos
   - textpontos2
+  - clone
   layers:
   - Default
   - TransparentFX
