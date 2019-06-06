@@ -9,6 +9,8 @@ public class AUDIO_MANAGER : MonoBehaviour
     public AudioClip[] clips;
     public AudioSource audioS;
 
+    public int pause = -1;
+
     void Awake() {
         if (instance == null) {
             instance = this;
@@ -23,8 +25,25 @@ public class AUDIO_MANAGER : MonoBehaviour
 
     void Update()
     {
-        if (!audioS.isPlaying) {
-            audioS.clip = GetRandom();
+        if (pause == 1)
+        {
+            audioS.Pause();
+        }
+        else if (!audioS.isPlaying) {
+            audioS.Play();
+        }
+    }
+
+    public void GetSom(int clipsA) {
+        if (clipsA == 0)
+        {
+            audioS.clip = clips[0];
+            audioS.loop = true;
+            audioS.Play();
+        }
+        else {
+            audioS.clip = clips[1];
+            audioS.loop = true;
             audioS.Play();
         }
     }

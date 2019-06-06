@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5126474290613304429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8521333582256179481}
+  - component: {fileID: 6778434999687366604}
+  m_Layer: 0
+  m_Name: UI_MANAGER
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8521333582256179481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5126474290613304429}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.1751328, y: 3.157385, z: 58.31667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6778434999687366604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5126474290613304429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 754d9f3b835a0184282dec23ff7ccdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  painelGameOver: {fileID: 0}
+  painelWin: {fileID: 0}
+  painelPause: {fileID: 0}
+  winBtnMenu: {fileID: 0}
+  winBtnNovamente: {fileID: 0}
+  WinBtnProximo: {fileID: 0}
+  estrela1: {fileID: 0}
+  estrela2: {fileID: 0}
+  estrela3: {fileID: 0}
+  loseBtnMenu: {fileID: 0}
+  loseBtnNovamente: {fileID: 0}
+  pauseBtn: {fileID: 0}
+  pauseBtnPlay: {fileID: 0}
+  pauseBtnNovamente: {fileID: 0}
+  pauseBtnMenu: {fileID: 0}
+  pauseBtnLoja: {fileID: 0}
+  winSom: {fileID: 0}
+  loseSom: {fileID: 0}
+  pontosTxt: {fileID: 0}
+  bestPontoTxt: {fileID: 0}
+  moedasTxt: {fileID: 0}

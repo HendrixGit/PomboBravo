@@ -32,63 +32,67 @@ public class UI_MANAGER : MonoBehaviour
     }
 
     void Carrega(Scene cena, LoadSceneMode modo) {
-        //Painel
-        painelGameOver = GameObject.Find("MenuLose").GetComponent<Animator>();
-        painelWin      = GameObject.Find("MenuWin").GetComponent<Animator>();
-        painelPause    = GameObject.Find("Painel_Pause").GetComponent<Animator>();
 
-        //btnwin
-        winBtnMenu      = GameObject.Find("Button_Menu").GetComponent<Button>();
-        winBtnNovamente = GameObject.Find("Button_Novamente").GetComponent<Button>();
-        WinBtnProximo   = GameObject.Find("Button_Avancar").GetComponent<Button>();
+        if (OndeEstou.instance.fase >= 1 && OndeEstou.instance.fase <= 4)
+        {
+            //Painel
+            painelGameOver = GameObject.Find("MenuLose").GetComponent<Animator>();
+            painelWin = GameObject.Find("MenuWin").GetComponent<Animator>();
+            painelPause = GameObject.Find("Painel_Pause").GetComponent<Animator>();
 
-        //Estrelas
-        estrela1 = GameObject.Find("Estrela1_Win").GetComponent<Animator>();
-        estrela2 = GameObject.Find("Estrela2_Win").GetComponent<Animator>();
-        estrela3 = GameObject.Find("Estrela3_Win").GetComponent<Animator>();
+            //btnwin
+            winBtnMenu = GameObject.Find("Button_Menu").GetComponent<Button>();
+            winBtnNovamente = GameObject.Find("Button_Novamente").GetComponent<Button>();
+            WinBtnProximo = GameObject.Find("Button_Avancar").GetComponent<Button>();
 
-        //btnLose
-        loseBtnMenu      = GameObject.Find("Button_Menu_L").GetComponent<Button>();
-        loseBtnNovamente = GameObject.Find("Button_Novamente_L").GetComponent<Button>();
+            //Estrelas
+            estrela1 = GameObject.Find("Estrela1_Win").GetComponent<Animator>();
+            estrela2 = GameObject.Find("Estrela2_Win").GetComponent<Animator>();
+            estrela3 = GameObject.Find("Estrela3_Win").GetComponent<Animator>();
 
-        //btnPause
-        pauseBtn          = GameObject.Find("Pause").GetComponent<Button>();
-        pauseBtnPlay      = GameObject.Find("play").GetComponent<Button>();
-        pauseBtnNovamente = GameObject.Find("again").GetComponent<Button>();
-        pauseBtnMenu      = GameObject.Find("scene").GetComponent<Button>();
-        pauseBtnLoja      = GameObject.Find("shop").GetComponent<Button>();
+            //btnLose
+            loseBtnMenu = GameObject.Find("Button_Menu_L").GetComponent<Button>();
+            loseBtnNovamente = GameObject.Find("Button_Novamente_L").GetComponent<Button>();
 
-        //audio
-        winSom  = painelWin.GetComponent<AudioSource>();
-        loseSom = painelGameOver.GetComponent<AudioSource>();
+            //btnPause
+            pauseBtn = GameObject.Find("Pause").GetComponent<Button>();
+            pauseBtnPlay = GameObject.Find("play").GetComponent<Button>();
+            pauseBtnNovamente = GameObject.Find("again").GetComponent<Button>();
+            pauseBtnMenu = GameObject.Find("scene").GetComponent<Button>();
+            pauseBtnLoja = GameObject.Find("shop").GetComponent<Button>();
 
-        //Pontos
-        pontosTxt    = GameObject.FindGameObjectWithTag("pointval").GetComponent<Text>();
-        bestPontoTxt = GameObject.FindGameObjectWithTag("ptbest").GetComponent<Text>();
+            //audio
+            winSom = painelWin.GetComponent<AudioSource>();
+            loseSom = painelGameOver.GetComponent<AudioSource>();
 
-        //moedas
-        moedasTxt    = GameObject.FindGameObjectWithTag("moedatxt").GetComponent<Text>();
+            //Pontos
+            pontosTxt = GameObject.FindGameObjectWithTag("pointval").GetComponent<Text>();
+            bestPontoTxt = GameObject.FindGameObjectWithTag("ptbest").GetComponent<Text>();
 
-        //imagem fundo preto
-        fundoPreto = GameObject.FindGameObjectWithTag("fundopreto").GetComponent<Image>();
+            //moedas
+            moedasTxt = GameObject.FindGameObjectWithTag("moedatxt").GetComponent<Text>();
 
-        //eventos
+            //imagem fundo preto
+            fundoPreto = GameObject.FindGameObjectWithTag("fundopreto").GetComponent<Image>();
 
-        //pause
-        pauseBtn.onClick.AddListener(Pausar);
-        pauseBtnPlay.onClick.AddListener(PausarInverse);
-        pauseBtnNovamente.onClick.AddListener(Again);
-        pauseBtnMenu.onClick.AddListener(GoMenu);
-        pauseBtnLoja.onClick.AddListener(GoLoja);
+            //eventos
 
-        //lose
-        loseBtnMenu.onClick.AddListener(GoMenu);
-        loseBtnNovamente.onClick.AddListener(Again);
+            //pause
+            pauseBtn.onClick.AddListener(Pausar);
+            pauseBtnPlay.onClick.AddListener(PausarInverse);
+            pauseBtnNovamente.onClick.AddListener(Again);
+            pauseBtnMenu.onClick.AddListener(GoMenu);
+            pauseBtnLoja.onClick.AddListener(GoLoja);
 
-        //win
-        winBtnMenu.onClick.AddListener(GoMenu);
-        winBtnNovamente.onClick.AddListener(Again);
-        WinBtnProximo.onClick.AddListener(ProximaFase);
+            //lose
+            loseBtnMenu.onClick.AddListener(GoMenu);
+            loseBtnNovamente.onClick.AddListener(Again);
+
+            //win
+            winBtnMenu.onClick.AddListener(GoMenu);
+            winBtnNovamente.onClick.AddListener(Again);
+            WinBtnProximo.onClick.AddListener(ProximaFase);
+        }
     }
 
     //metodos pause
@@ -116,19 +120,38 @@ public class UI_MANAGER : MonoBehaviour
 
     //metodo pause-menu
     public void GoMenu() {
-        SceneManager.LoadScene("MenuFases2");
+
+        if (OndeEstou.instance.faseMestra == "Mestra1")
+        {
+            SceneManager.LoadScene("Mestra1");   
+        }
+        else 
+        if(OndeEstou.instance.faseMestra == "Mestra2") {
+            SceneManager.LoadScene("Mestra2");
+        }
+
         Time.timeScale = 1;
         GAME_MANAGER.instance.pausado = false;
     }
 
     //metodo pause loja
     public void GoLoja() {
-
+        AUDIO_MANAGER.instance.GetSom(1);
+        SceneManager.LoadScene("Loja");
+        Time.timeScale = 1;
+        GAME_MANAGER.instance.pausado = false;
     }
 
     //metodo avancar
     public void ProximaFase() {
-        SceneManager.LoadScene(OndeEstou.instance.fase + 1);
+        if (OndeEstou.instance.faseN == "Level2_Mestra1" || OndeEstou.instance.faseN == "Level2_Mestra2")
+        {
+            SceneManager.LoadScene("MenuFasesPai");
+        }
+        else
+        {
+            SceneManager.LoadScene(OndeEstou.instance.fase + 1);
+        }
     }
 
 }

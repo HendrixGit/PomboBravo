@@ -1,0 +1,2 @@
+D:\Programacao\Projetos\Unity\PomboBravo\obj\Debug\Assembly-CSharp-Editor.csprojAssemblyReference.cache
+D:\Programacao\Projetos\Unity\PomboBravo\obj\Debug\Assembly-CSharp-Editor.csproj.CoreCompileInputs.cache

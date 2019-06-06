@@ -43,22 +43,27 @@ public class GAME_MANAGER : MonoBehaviour
     }
 
     void Carrega(Scene cena, LoadSceneMode modo) {
-        pos = GameObject.FindWithTag("pos").GetComponent<Transform>();
 
-        //passaroPos
-        passarosNum = GameObject.FindGameObjectsWithTag("Player").Length;
-        passaro = new GameObject[passarosNum];
-        objE = GameObject.FindGameObjectWithTag("PE").GetComponent<Transform>();
-        objD = GameObject.FindGameObjectWithTag("PD").GetComponent<Transform>();
-        StartGame();
+        if (OndeEstou.instance.fase >= 1 && OndeEstou.instance.fase <= 4)
+        {
 
-        for (int x = 0; x < passarosNum; x++) {
-            passaro[x] = GameObject.Find("Bird" + x);
+            pos = GameObject.FindWithTag("pos").GetComponent<Transform>();
+
+            //passaroPos
+            passarosNum = GameObject.FindGameObjectsWithTag("Player").Length;
+            passaro = new GameObject[passarosNum];
+            objE = GameObject.FindGameObjectWithTag("PE").GetComponent<Transform>();
+            objD = GameObject.FindGameObjectWithTag("PD").GetComponent<Transform>();
+            StartGame();
+
+            for (int x = 0; x < passarosNum; x++)
+            {
+                passaro[x] = GameObject.Find("Bird" + x);
+            }
+
+            numPorcosCena = GameObject.FindGameObjectsWithTag("porco").Length;
+            aux = passarosNum;
         }
-
-        numPorcosCena = GameObject.FindGameObjectsWithTag("porco").Length;
-        aux = passarosNum;
-
     }
 
     void NascPassaro() {
@@ -203,11 +208,13 @@ public class GAME_MANAGER : MonoBehaviour
 
     void Update()
     {
+        
         if (numPorcosCena <= 0 && passarosNum > 0)
         {
             win = true;
         }
-        else if (numPorcosCena > 0 && passarosNum <= 0) {
+        else if (numPorcosCena > 0 && passarosNum <= 0)
+        {
             lose = true;
         }
 
@@ -215,11 +222,12 @@ public class GAME_MANAGER : MonoBehaviour
         {
             WinGame();
         }
-        else if (lose) {
+        else if (lose)
+        {
             GameOver();
         }
-        
-        if(jogoComecou)
+
+        if (jogoComecou)
         {
             NascPassaro();
         }

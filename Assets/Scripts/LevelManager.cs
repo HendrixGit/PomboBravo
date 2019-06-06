@@ -25,8 +25,8 @@ public class LevelManager : MonoBehaviour
 
     void Awake()
     {
-        Destroy(GameObject.Find("UIManager(Clone)"));
-        Destroy(GameObject.Find("GameManager(Clone)"));
+        Destroy(GameObject.Find("UI_MANAGER"));
+        Destroy(GameObject.Find("GAME_MANAGER"));
     }
 
 
@@ -88,7 +88,7 @@ public class LevelManager : MonoBehaviour
                 SalvarLevelGame.instance.SalvarLevelsMestra(LevelsMestre1, 1);
             }
             else
-       if (OndeEstou.instance.faseMestra == "Mestra2")
+            if (OndeEstou.instance.faseMestra == "Mestra2")
             {
                 LevelsMestre2++;
                 SalvarLevelGame.instance.SalvarLevelsMestra(LevelsMestre2, 2);

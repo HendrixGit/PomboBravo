@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
 
@@ -11,6 +12,10 @@ public class OndeEstou : MonoBehaviour
     public string faseN;
 
     public string faseMestra;
+
+    public Button btnM1, btnM2;
+    [SerializeField]
+    private GameObject UIManagerGO, GameManagerGO;
 
     void Awake() {
         if (instance == null)
@@ -28,6 +33,14 @@ public class OndeEstou : MonoBehaviour
     public void VerificaFase(Scene cena, LoadSceneMode modo) {
         fase  = SceneManager.GetActiveScene().buildIndex;
         faseN = SceneManager.GetActiveScene().name;
+
+        if (faseN == "MenuFasesPai") {
+            btnM1 = GameObject.Find("ButtonFase").GetComponent<Button>();
+            btnM2 = GameObject.Find("ButtonFase2").GetComponent<Button>();
+
+            btnM1.onClick.AddListener(() => Mestra("Mestra1"));
+            btnM2.onClick.AddListener(() => Mestra("Mestra2"));
+        }
     }
 
     //mestra
