@@ -564,7 +564,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180978970}
   m_CullTransparentMesh: 0
---- !u!1 &230169052
+--- !u!1 &276654092
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -572,61 +572,61 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 230169054}
-  - component: {fileID: 230169053}
+  - component: {fileID: 276654094}
+  - component: {fileID: 276654093}
   m_Layer: 0
-  m_Name: GAME_MANAGER
+  m_Name: UI_MANAGER
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &230169053
+--- !u!114 &276654093
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 230169052}
+  m_GameObject: {fileID: 276654092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9522b1979c01d274ea5f3505805a993d, type: 3}
+  m_Script: {fileID: 11500000, guid: 754d9f3b835a0184282dec23ff7ccdd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passaro: []
-  passarosNum: 0
-  passarosEmCena: 0
-  pos: {fileID: 0}
-  win: 0
-  jogoComecou: 0
-  nomePassaro: 
-  passaroLancado: 0
-  objE: {fileID: 0}
-  objD: {fileID: 0}
-  numPorcosCena: 0
-  lose: 0
-  estrela1Fim: 0
-  estrela2Fim: 0
-  aux: 0
-  estrelasNum: 0
-  trava: 0
-  pontosGame: 0
-  bestPontoGame: 0
-  moedasGame: 0
-  pausado: 0
---- !u!4 &230169054
+  painelGameOver: {fileID: 0}
+  painelWin: {fileID: 0}
+  painelPause: {fileID: 0}
+  winBtnMenu: {fileID: 0}
+  winBtnNovamente: {fileID: 0}
+  WinBtnProximo: {fileID: 0}
+  estrela1: {fileID: 0}
+  estrela2: {fileID: 0}
+  estrela3: {fileID: 0}
+  loseBtnMenu: {fileID: 0}
+  loseBtnNovamente: {fileID: 0}
+  pauseBtn: {fileID: 0}
+  pauseBtnPlay: {fileID: 0}
+  pauseBtnNovamente: {fileID: 0}
+  pauseBtnMenu: {fileID: 0}
+  pauseBtnLoja: {fileID: 0}
+  winSom: {fileID: 0}
+  loseSom: {fileID: 0}
+  pontosTxt: {fileID: 0}
+  bestPontoTxt: {fileID: 0}
+  moedasTxt: {fileID: 0}
+--- !u!4 &276654094
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 230169052}
+  m_GameObject: {fileID: 276654092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.27, y: 9.75, z: -4.1163545}
+  m_LocalPosition: {x: -29.35, y: 8.03, z: -29.601562}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &328870409 stripped
 RectTransform:
@@ -969,70 +969,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &506497319
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 506497321}
-  - component: {fileID: 506497320}
-  m_Layer: 0
-  m_Name: UI_MANAGER
-  m_TagString: Untagged
-  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &506497320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 506497319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 754d9f3b835a0184282dec23ff7ccdd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  painelGameOver: {fileID: 0}
-  painelWin: {fileID: 0}
-  painelPause: {fileID: 0}
-  winBtnMenu: {fileID: 0}
-  winBtnNovamente: {fileID: 0}
-  WinBtnProximo: {fileID: 0}
-  estrela1: {fileID: 0}
-  estrela2: {fileID: 0}
-  estrela3: {fileID: 0}
-  loseBtnMenu: {fileID: 0}
-  loseBtnNovamente: {fileID: 0}
-  pauseBtn: {fileID: 0}
-  pauseBtnPlay: {fileID: 0}
-  pauseBtnNovamente: {fileID: 0}
-  pauseBtnMenu: {fileID: 0}
-  pauseBtnLoja: {fileID: 0}
-  winSom: {fileID: 0}
-  loseSom: {fileID: 0}
-  pontosTxt: {fileID: 0}
-  bestPontoTxt: {fileID: 0}
-  moedasTxt: {fileID: 0}
---- !u!4 &506497321
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 506497319}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.35, y: 8.03, z: -29.601562}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1654,6 +1590,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651191679}
   m_CullTransparentMesh: 0
+--- !u!1 &782063056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 782063058}
+  - component: {fileID: 782063057}
+  m_Layer: 0
+  m_Name: GAME_MANAGER
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &782063057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782063056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9522b1979c01d274ea5f3505805a993d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passaro: []
+  passarosNum: 0
+  passarosEmCena: 0
+  pos: {fileID: 0}
+  win: 0
+  jogoComecou: 0
+  nomePassaro: 
+  passaroLancado: 0
+  objE: {fileID: 0}
+  objD: {fileID: 0}
+  numPorcosCena: 0
+  lose: 0
+  estrela1Fim: 0
+  estrela2Fim: 0
+  aux: 0
+  estrelasNum: 0
+  trava: 0
+  pontosGame: 0
+  bestPontoGame: 0
+  moedasGame: 0
+  pausado: 0
+--- !u!4 &782063058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782063056}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -29.27, y: 9.75, z: -4.1163545}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 34
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &789094570 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 789094570, guid: 9fd66a1480865b04eb34fd385c4612df,

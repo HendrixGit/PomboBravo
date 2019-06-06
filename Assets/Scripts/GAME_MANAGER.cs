@@ -64,6 +64,7 @@ public class GAME_MANAGER : MonoBehaviour
             numPorcosCena = GameObject.FindGameObjectsWithTag("porco").Length;
             aux = passarosNum;
         }
+
     }
 
     void NascPassaro() {
@@ -180,10 +181,10 @@ public class GAME_MANAGER : MonoBehaviour
     void StartGame() {
         jogoComecou    = true;
         passarosEmCena = 0;
-        win  = false;
-        lose = false;
-        tocaWin  = false;
-        tocaLose = false;
+        win         = false;
+        lose        = false;
+        tocaWin     = false;
+        tocaLose    = false;
         estrelasNum = 0;
         trava       = false;
 
@@ -207,8 +208,7 @@ public class GAME_MANAGER : MonoBehaviour
 
 
     void Update()
-    {
-        
+    {        
         if (numPorcosCena <= 0 && passarosNum > 0)
         {
             win = true;

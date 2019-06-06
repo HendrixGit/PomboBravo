@@ -31,14 +31,18 @@ public class Impact_Porco : MonoBehaviour
                 Instantiate(pontos100, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 GAME_MANAGER.instance.numPorcosCena -= 1;
                 Destroy(gameObject);
+                GAME_MANAGER.instance.pontosGame  += 1000;
+                UI_MANAGER.instance.pontosTxt.text = GAME_MANAGER.instance.pontosGame.ToString();
             }
         }
-        else if (col.relativeVelocity.magnitude > 12 && col.gameObject.CompareTag("Player"))
+        else if (col.relativeVelocity.magnitude > 12 && col.gameObject.CompareTag("Player") || col.gameObject.CompareTag("clone"))
         {
             Instantiate(bomb, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             Instantiate(pontos100, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             GAME_MANAGER.instance.numPorcosCena -= 1;
             Destroy(gameObject);
+            GAME_MANAGER.instance.pontosGame += 1000;
+            UI_MANAGER.instance.pontosTxt.text = GAME_MANAGER.instance.pontosGame.ToString();
         }
     }
 }

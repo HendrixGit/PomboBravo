@@ -41,6 +41,15 @@ public class OndeEstou : MonoBehaviour
             btnM1.onClick.AddListener(() => Mestra("Mestra1"));
             btnM2.onClick.AddListener(() => Mestra("Mestra2"));
         }
+
+
+        if (fase >= 1 && fase <= 4)
+        {
+            Instantiate(UIManagerGO);
+            Instantiate(GameManagerGO);
+        }
+
+
     }
 
     //mestra

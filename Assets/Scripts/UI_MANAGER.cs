@@ -35,6 +35,8 @@ public class UI_MANAGER : MonoBehaviour
 
         if (OndeEstou.instance.fase >= 1 && OndeEstou.instance.fase <= 4)
         {
+
+            print("OKOK");
             //Painel
             painelGameOver = GameObject.Find("MenuLose").GetComponent<Animator>();
             painelWin = GameObject.Find("MenuWin").GetComponent<Animator>();

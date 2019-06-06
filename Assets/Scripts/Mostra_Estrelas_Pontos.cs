@@ -11,10 +11,14 @@ public class Mostra_Estrelas_Pontos : MonoBehaviour
     private int[] estrelasVal;
     private int[] pontosVal;
 
+    private Text Moedas;
+
     void Awake() {
 
         estrelasVal = new int[2];
         pontosVal   = new int[2];
+        Moedas      = GameObject.Find("Moedas").GetComponentInChildren<Text>();
+        Moedas.text = SCORE_MANAGER.instance.LoadMoedas().ToString();
 
         for (int a = 0; a < 2; a++) {
             for (int x = 0; x <= SalvarLevelGame.instance.LoadLevelsMestra(a + 1); x++) {
@@ -39,5 +43,7 @@ public class Mostra_Estrelas_Pontos : MonoBehaviour
         pontos.text  = SalvarPontuacao.instance.LoadPontuacaoMestra1().ToString();
         pontos2.text = SalvarPontuacao.instance.LoadPontuacaoMestra2().ToString();
     }
+
+
 
 }

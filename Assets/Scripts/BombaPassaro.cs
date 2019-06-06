@@ -21,11 +21,13 @@ public class BombaPassaro : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && passaroRB.isKinematic == false && trava == 0)
         {
-            GAME_MANAGER.instance.passarosNum -= 1;
             libera = true;
             trava = 1;
             Instantiate(bomba, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            GAME_MANAGER.instance.passarosEmCena  = 0;
+            GAME_MANAGER.instance.passarosNum    -= 1;
+            GAME_MANAGER.instance.passaroLancado  = false;
         }
 
         if (Input.touchCount > 0)
@@ -40,6 +42,10 @@ public class BombaPassaro : MonoBehaviour
                     libera = true;
                     Instantiate(bomba, transform.position, Quaternion.identity);
                     Destroy(gameObject);
+                    Destroy(gameObject);
+                    GAME_MANAGER.instance.passarosEmCena  = 0;
+                    GAME_MANAGER.instance.passarosNum    -= 1;
+                    GAME_MANAGER.instance.passaroLancado  = false;
                 }
             }
         }

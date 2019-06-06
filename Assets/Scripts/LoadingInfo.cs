@@ -15,7 +15,10 @@ public class LoadingInfo : MonoBehaviour
     IEnumerator LoadGameProg(string val) {
         AsyncOperation async = SceneManager.LoadSceneAsync(val);
         while (!async.isDone) {
-            //carregando.enabled = true;
+            if (OndeEstou.instance.fase == 0 || OndeEstou.instance.fase == 5)
+            {
+                carregando.enabled = true;
+            }
             yield return null;
         }
     }

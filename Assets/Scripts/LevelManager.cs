@@ -22,11 +22,14 @@ public class LevelManager : MonoBehaviour
     public List<Level> levelList;
 
     private int LevelsMestre1 = 0, LevelsMestre2 = 2;
+    private Text moedas;
 
     void Awake()
     {
-        Destroy(GameObject.Find("UI_MANAGER"));
-        Destroy(GameObject.Find("GAME_MANAGER"));
+        //Destroy(GameObject.Find("UI_MANAGER"));
+        //Destroy(GameObject.Find("GAME_MANAGER"));
+        moedas      = GameObject.Find("Moedas").GetComponentInChildren<Text>();
+        moedas.text = SCORE_MANAGER.instance.LoadMoedas().ToString();
     }
 
 
