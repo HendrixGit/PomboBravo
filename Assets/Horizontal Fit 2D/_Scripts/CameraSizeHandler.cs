@@ -12,6 +12,8 @@ public class CameraSizeHandler : MonoBehaviour
     private float posDiff;
     private Vector3 targetPos;
 
+    public static float camSize;
+
 	// Use this for initialization
 	void Start () 
     {
@@ -23,6 +25,7 @@ public class CameraSizeHandler : MonoBehaviour
     {
         cam.orthographicSize = (width / Screen.width * Screen.height) / 2;
         UpdatePosition();
+        camSize = cam.orthographicSize;
     }
 
     public void UpdatePosition()

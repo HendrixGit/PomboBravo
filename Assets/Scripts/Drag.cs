@@ -49,6 +49,11 @@ public class Drag : MonoBehaviour
         audioPassaro = GetComponent<AudioSource>();
         spring.connectedBody = catapultRB;
 
+        Vector2 temp = spring.connectedAnchor;
+        temp.x = 0;
+        temp.y = 0;
+        spring.connectedAnchor = temp;
+
         drag = GetComponent<Collider2D>();
 
         leftCatapultRay = new Ray(lineFront.transform.position, Vector3.zero);
@@ -88,6 +93,15 @@ public class Drag : MonoBehaviour
 
             if (hit.collider != null) {
                 clicked = true;
+
+                if(GAME_MANAGER.instance.pausado == false)
+                {
+                    if (transform.position == GAME_MANAGER.instance.pos.position) {
+                        clicked        = true;
+                        rastro.enabled = false;
+                        estouPronto    = true;
+                    }
+                }
             }
 
             if (clicked) {
@@ -170,7 +184,7 @@ public class Drag : MonoBehaviour
 
     void MataPassaro() {
 
-        if (passaroRB.velocity.magnitude == 0 && !passaroRB.isKinematic || transform.position.x > pontoMorte.transform.position.x) {
+        if (passaroRB.velocity.magnitude == 0 && !passaroRB.isKinematic) {
             StartCoroutine(TempoMorte());
         }
     }

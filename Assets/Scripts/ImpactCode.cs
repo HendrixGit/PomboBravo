@@ -24,34 +24,45 @@ public class ImpactCode : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.relativeVelocity.magnitude > 4 && col.relativeVelocity.magnitude < 10)
+        if (GAME_MANAGER.instance.jogoComecou == true)
         {
-            if (limite < sprites.Length - 1)
+            if (col.relativeVelocity.magnitude > 4 && col.relativeVelocity.magnitude < 10)
             {
-                limite++;
-                spriteR.sprite = sprites[limite];
-                audioObj.clip = clips[0];
-                audioObj.Play();
+                if (limite < sprites.Length - 1)
+                {
+                    limite++;
+                    spriteR.sprite = sprites[limite];
+                    audioObj.clip = clips[0];
+                    audioObj.Play();
+                }
+                else if (limite == sprites.Length - 1)
+                {
+                    Instantiate(bomb, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                    Instantiate(pontos100, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                    if (GAME_MANAGER.instance.numPorcosCena < 0) {
+                        GAME_MANAGER.instance.numPorcosCena = 0;
+                    }
+                    audioObj.clip = clips[1];
+                    audioObj.Play();
+                    Destroy(gameObject, 1);
+                    GAME_MANAGER.instance.pontosGame += 1000;
+                    UI_MANAGER.instance.pontosTxt.text = GAME_MANAGER.instance.pontosGame.ToString();
+                }
             }
-            else if (limite == sprites.Length - 1)
+            else if (col.relativeVelocity.magnitude > 12 && col.gameObject.CompareTag("Player") || col.gameObject.CompareTag("clone"))
             {
-                Instantiate(bomb,      new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                Instantiate(bomb, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 Instantiate(pontos100, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                if (GAME_MANAGER.instance.numPorcosCena < 0)
+                {
+                    GAME_MANAGER.instance.numPorcosCena = 0;
+                }
                 audioObj.clip = clips[1];
                 audioObj.Play();
-                Destroy(gameObject,1);
-                GAME_MANAGER.instance.pontosGame  += 1000;
+                Destroy(gameObject, 1);
+                GAME_MANAGER.instance.pontosGame += 1000;
                 UI_MANAGER.instance.pontosTxt.text = GAME_MANAGER.instance.pontosGame.ToString();
             }
         }
-        else if (col.relativeVelocity.magnitude > 12 && col.gameObject.CompareTag("Player") || col.gameObject.CompareTag("clone")) {
-            Instantiate(bomb, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-            audioObj.clip = clips[1];
-            audioObj.Play();
-            Destroy(gameObject,1);
-            GAME_MANAGER.instance.pontosGame  += 1000;
-            UI_MANAGER.instance.pontosTxt.text = GAME_MANAGER.instance.pontosGame.ToString();
-        }
     }
-
 }
